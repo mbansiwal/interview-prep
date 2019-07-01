@@ -3,23 +3,12 @@ package arr;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * https://leetcode.com/problems/binary-watch
+ */
 public class BinaryWatch
 {
 	List<String> results = new ArrayList<String>();
-
-	// private int countDigits(int n)
-	// {
-	// int digitCount = 0;
-	// while (n != 0)
-	// {
-	// if (n % 2 == 1)
-	// {
-	// digitCount++;
-	// }
-	// n = n / 2;
-	// }
-	// return digitCount;
-	// }
 
 	private int countDigits(int n)
 	{

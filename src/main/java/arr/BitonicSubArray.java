@@ -1,5 +1,8 @@
 package arr;
 
+/**
+ * https://www.geeksforgeeks.org/maximum-length-bitonic-subarray/
+ */
 public class BitonicSubArray 
 {
 	private static int findMax(int[] arr)

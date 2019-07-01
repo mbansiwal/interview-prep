@@ -1,6 +1,6 @@
 package arr;
 
-public class DIvideArrayIntoTwo 
+public class DivideArrayIntoTwo
 {
 	public static void averageOfTwoArrayIsSame(int[] arr)
 	{

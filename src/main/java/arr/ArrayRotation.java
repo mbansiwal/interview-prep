@@ -4,6 +4,15 @@ import java.util.Arrays;
 
 public class ArrayRotation
 {
+	/**
+	 * Printing the rotation of array.
+	 * It requires extra space O(n) to save results and recreate the array if we in place update
+	 * Time Complexity: O(n)
+	 *
+	 * @param arr
+	 * @param n
+	 * @param k
+	 */
 	static void leftRotate(int arr[], int n, int k)
 	{
 		for (int i = 0; i < n; i++)
@@ -14,6 +23,15 @@ public class ArrayRotation
 		System.out.println();
 	}
 
+	/**
+	 * Printing the rotation of array.
+	 * It requires extra space O(n) to save results and recreate the array if we in place update
+	 * Time Complexity: O(n)
+	 *
+	 * @param arr
+	 * @param n
+	 * @param k
+	 */
 	static void rightRotate(int arr[], int n, int k)
 	{
 		System.out.print("Right Rotate:::");
@@ -25,6 +43,14 @@ public class ArrayRotation
 		System.out.println();
 	}
 
+	/**
+	 * Actual Roation of Array
+	 * Time Complexity is O(n) but less performing than {@link #leftRotate(int[], int, int)} method
+	 *
+	 * @param arr
+	 * @param n
+	 * @param k
+	 */
 	static void rightRotateInPlace(int arr[], int n, int k)
 	{
 		reverseArray(arr, 0, n - 1);
@@ -33,7 +59,7 @@ public class ArrayRotation
 		System.out.println();
 	}
 
-	void leftRotateInPlace(int arr[], int d, int n)
+	static void leftRotateInPlace(int arr[], int d, int n)
 	{
 		reverseArray(arr, 0, d - 1);
 		reverseArray(arr, d, n - 1);
@@ -80,6 +106,8 @@ public class ArrayRotation
 		rightRotate(arr, n, k);
 
 		rightRotateInPlace(arr, n, 2);
+		System.out.println(Arrays.toString(arr));
+		leftRotateInPlace(arr, n, 2);
 		System.out.println(Arrays.toString(arr));
 	}
 }

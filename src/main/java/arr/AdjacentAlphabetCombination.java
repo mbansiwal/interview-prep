@@ -3,10 +3,20 @@ package arr;
 import java.util.ArrayList;
 import java.util.List;
 
+
+/**
+ *
+ */
 public class AdjacentAlphabetCombination
 {
-	int count = 0;
-
+	/**
+	 * Dynamic Programming to solve it
+	 * Space Complexity: O(n)
+	 * Time Complexity: O(n)
+	 *
+	 * @param arr
+	 * @return
+	 */
 	public int combinations(int[] arr)
 	{
 		if (arr.length < 2)
@@ -45,10 +55,10 @@ public class AdjacentAlphabetCombination
 		}
 		for (int i = start; i < (start + k) && i < arr.length; i++)
 		{
-			// int number = formNumber(arr, start, i);
-			// if (number < 26)
+			int number = formNumber(arr, start, i);
+			if (number < 26)
 			{
-				result[end] = formNumber(arr, start, i);
+				result[end] = number;
 				allCombinations(arr, result, i + 1, end + 1, k);
 			}
 		}
@@ -64,9 +74,12 @@ public class AdjacentAlphabetCombination
 		for (int i = start; i < (start + k) && i < numbers.length; ++i)
 		{
 			int number = formNumber(numbers, start, i);
-			result.add(number);
-			allCombinations(numbers, result, i + 1, k);
-			result.remove(result.size() - 1);
+			if (number < 26)
+			{
+				result.add(number);
+				allCombinations(numbers, result, i + 1, k);
+				result.remove(result.size() - 1);
+			}
 		}
 	}
 
@@ -81,6 +94,13 @@ public class AdjacentAlphabetCombination
 	}
 
 
+	/**
+	 * Checking whether it is valid alphabet or not
+	 *
+	 * @param a1
+	 * @param a2
+	 * @return
+	 */
 	private boolean isValid(int a1, int a2)
 	{
 		int number = a1 * 10 + a2;
@@ -97,7 +117,7 @@ public class AdjacentAlphabetCombination
 
 		int[] arr2 =
 		{
-				1, 2, 1, 4
+				1, 2, 1, 4, 6
 		};
 		int[] result = new int[arr2.length];
 		new AdjacentAlphabetCombination().allCombinations(arr2, result, 0, 0, 2);

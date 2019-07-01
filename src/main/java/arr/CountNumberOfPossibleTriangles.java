@@ -2,6 +2,9 @@ package arr;
 
 import java.util.Arrays;
 
+/**
+ * https://www.geeksforgeeks.org/find-number-of-triangles-possible/
+ */
 public class CountNumberOfPossibleTriangles 
 {
 	public static int findNumberOfTriangles(int[] arr)
@@ -51,6 +54,12 @@ public class CountNumberOfPossibleTriangles
 				2, 3, 4, 5, 6, 7
 		};
 		System.out.println("Total number of triangles is " + findNumberOfTriangles(arr4));
+
+		int arr5[] =
+				{
+						4, 3, 5, 7, 6
+				};
+		System.out.println("Total number of triangles is " + findNumberOfTriangles(arr5));
 
 	}
 }

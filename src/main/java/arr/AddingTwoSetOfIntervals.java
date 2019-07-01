@@ -23,31 +23,6 @@ class Pair
 }
 public class AddingTwoSetOfIntervals
 {
-
-	public static void main(String args[])
-	{
-		Pair p1 = new Pair(1, 4);
-		Pair p2 = new Pair(6, 8);
-		Pair p3 = new Pair(2, 4);
-		Pair p4 = new Pair(7, 9);
-		Pair p5 = new Pair(10, 15);
-
-		// 1,4,6,9,10,15
-		Pair[] arr1 =
-		{
-				p1, p2, p3
-		};
-
-		Pair[] arr2 =
-		{
-				p4, p5
-		};
-
-		AddingTwoSetOfIntervals ats = new AddingTwoSetOfIntervals();
-		List<Pair> rs = ats.combineInterval(arr1, arr2);
-		System.out.print(rs);
-	}
-
 	public List<Pair> combineInterval(Pair[] arr1, Pair[] arr2)
 	{
 		List<Pair> pairs = new ArrayList<>();
@@ -107,5 +82,29 @@ public class AddingTwoSetOfIntervals
 			j++;
 		}
 		return pairs;
+	}
+
+	public static void main(String args[])
+	{
+		Pair p1 = new Pair(1, 4);
+		Pair p2 = new Pair(6, 8);
+		Pair p3 = new Pair(2, 4);
+		Pair p4 = new Pair(7, 9);
+		Pair p5 = new Pair(10, 15);
+
+		// 1,4,6,9,10,15
+		Pair[] arr1 =
+				{
+						p1, p2, p3
+				};
+
+		Pair[] arr2 =
+				{
+						p4, p5
+				};
+
+		AddingTwoSetOfIntervals ats = new AddingTwoSetOfIntervals();
+		List<Pair> rs = ats.combineInterval(arr1, arr2);
+		System.out.print(rs);
 	}
 }

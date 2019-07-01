@@ -1,5 +1,8 @@
 package arr;
 
+/**
+ * This question is to find all duplicate elements within range of 1 to n.
+ */
 public class DuplicateElements
 {
 
@@ -8,8 +11,11 @@ public class DuplicateElements
 		int[] arr = { 1, 2, 3, 1, 3, 6, 6 };
 		findDuplicate(arr);
 	}
-	
-	
+
+	/**
+	 * This method uses the count sort technique to find the duplicate numbers
+	 * @param arr
+	 */
 	public static void findDuplicate(int[] arr)
 	{
 		int n = arr.length;

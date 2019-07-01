@@ -1,5 +1,8 @@
 package arr;
 
+/**
+ * https://www.geeksforgeeks.org/find-maximum-average-subarray-of-k-length/
+ */
 public class FindMaximumAverageSubarrayOfKLength
 {
 	public static void main(String[] args)
