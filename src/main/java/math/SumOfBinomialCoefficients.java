@@ -2,6 +2,8 @@ package math;
 
 /**
  * https://www.geeksforgeeks.org/sum-binomial-coefficients/
+ *
+ * https://www.askiitians.com/iit-jee-algebra/binomial-theorem-for-a-positive-integral-index/sum-of-binomial-coefficients.aspx
  */
 public class SumOfBinomialCoefficients {
     public int sumOfCoefficients(int n){
