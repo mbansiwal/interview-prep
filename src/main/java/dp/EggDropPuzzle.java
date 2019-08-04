@@ -1,5 +1,10 @@
 package dp;
 
+/**
+ * http://www.cs.umd.edu/~gasarch/BLOGPAPERS/eggold.pdf
+ * https://www.geeksforgeeks.org/eggs-dropping-puzzle-binomial-coefficient-and-binary-search-solution/
+ *
+ */
 public class EggDropPuzzle
 {
 	public static void main(String args[])
@@ -9,6 +14,12 @@ public class EggDropPuzzle
 				"Minimum number of trials in worst case with " + n + "  eggs and " + k + " floors is " + eggDrop(n, k));
 	}
 
+	/**
+	 * O(n2) solution
+	 * @param noOfEggs
+	 * @param noOfFloors
+	 * @return
+	 */
 	private static int eggDrop(int noOfEggs, int noOfFloors)
 	{
 		int[][] eggDropTable = new int[noOfEggs + 1][noOfFloors + 1];
