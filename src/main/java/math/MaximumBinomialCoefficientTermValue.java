@@ -1,5 +1,9 @@
 package math;
 
+/**
+ * https://www.geeksforgeeks.org/maximum-binomial-coefficient-term-value/
+ *
+ */
 public class MaximumBinomialCoefficientTermValue {
     private static int binomialCoefficient(int n, int k){
         int[][] dp = new int[n+1][k+1];
