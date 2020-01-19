@@ -1,6 +1,22 @@
 package tree;
 
-
+/**
+ * https://www.geeksforgeeks.org/connect-nodes-at-same-level-with-o1-extra-space/
+ *
+ * Input Tree
+ *        A
+ *       / \
+ *      B   C
+ *     / \   \
+ *    D   E   F
+ *
+ * Output Tree
+ *        A--->NULL
+ *       / \
+ *      B-->C-->NULL
+ *     / \   \
+ *    D-->E-->F-->NULL
+ */
 
 public class ConnectNodesAtSameLevel {
     static class Node

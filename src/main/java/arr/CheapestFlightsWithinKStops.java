@@ -14,20 +14,22 @@ public class CheapestFlightsWithinKStops
 		Arrays.fill(minCost, INF);
 		minCost[src] = 0;
 		int ans = minCost[dst];
-		for (int i = K; i >= 0; i--)
+		for (int i = 0; i <= K; i++)
 		{
 			int[] temp = new int[n];
 			Arrays.fill(temp, INF);
 			for (int[] flight : flights)
 			{
-				if (minCost[flight[0]] != INF)
+				int sourceAirport = flight[0];
+				int destinationAirport = flight[1];
+				int costOfTransferFromSourceToDestination = flight[2];
+				if (minCost[sourceAirport] != INF)
 				{
-					temp[flight[1]] = Math.min(temp[flight[1]], minCost[flight[0]] + flight[2]);
+					temp[destinationAirport] = Math.min(temp[destinationAirport], minCost[sourceAirport] + costOfTransferFromSourceToDestination);
 				}
 			}
 			minCost = temp;
 			ans = Math.min(ans, temp[dst]);
-			System.out.println(ans);
 		}
 
 		return ans == INF ? -1 : ans;
@@ -61,5 +63,13 @@ public class CheapestFlightsWithinKStops
 				{0,2,500}
 				};
 		System.out.println(new CheapestFlightsWithinKStops().findCheapestPrice(3, flights, 0, 2, 1));
+
+		int[][] flights2 = {
+				{0,1,100},
+				{1,2,100},
+				{2,3,50},
+				{0,3,500}
+		};
+		System.out.println(new CheapestFlightsWithinKStops().findCheapestPrice(4, flights2, 0, 3, 2));
 	}
 }
