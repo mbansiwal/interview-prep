@@ -5,7 +5,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class GenerateSubsets
+public class
+
+GenerateSubsets
 {
 	public List<List<Integer>> subsets(int[] nums)
 	{

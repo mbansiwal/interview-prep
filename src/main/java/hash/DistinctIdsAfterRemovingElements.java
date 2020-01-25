@@ -1,7 +1,6 @@
 package hash;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.Map.Entry;
 
 /**
@@ -26,41 +25,33 @@ public class DistinctIdsAfterRemovingElements
 	{
 
 		Map<Integer, Integer> m = new HashMap<Integer, Integer>();
-		int count = 0;
-		int size = 0;
+		int size = arr.length;
 
 		// Store the occurrence of ids
 		for (int i = 0; i < n; i++)
 		{
-
-			// If the key is not add it to map
-			if (m.containsKey(arr[i]) == false)
-			{
-				m.put(arr[i], 1);
-				size++;
-			}
-
-			// If it is present then increase the value by 1
-			else
-				m.put(arr[i], m.get(arr[i]) + 1);
+			m.put(arr[i], m.getOrDefault(arr[i], 0) + 1);
 		}
 
-		// Start removing elements from the beginning
-		for (Entry<Integer, Integer> mp : m.entrySet())
-		{
-			// Remove if current value is less than
-			// or equal to mi
-			if (mp.getKey() <= mi)
-			{
-				mi -= mp.getKey();
-				count++;
-			}
-			// Return the remaining size
-			else
-				return size - count;
-		}
+		Comparator<Map.Entry<Integer, Integer>> comparator = (Map.Entry<Integer, Integer> m1, Map.Entry<Integer, Integer> m2)->
+			m1.getValue().compareTo(m2.getValue());
 
-		return size - count;
+		PriorityQueue<Map.Entry<Integer, Integer>> queue = new PriorityQueue(comparator);
+		queue.addAll(m.entrySet());
+
+		int skippedElements = 0;
+		while(!queue.isEmpty()){
+			if(mi == 0){
+				break;
+			}
+			Integer toRemoveSize = queue.poll().getValue();
+			if(mi >= toRemoveSize){
+				mi = mi - toRemoveSize;
+			} else{
+				skippedElements++;
+			}
+		}
+		return skippedElements + queue.size();
 	}
 
 	// Driver method to test above function
@@ -74,5 +65,13 @@ public class DistinctIdsAfterRemovingElements
 		int m = 3;
 
 		System.out.println(distinctIds(arr, arr.length, m));
+
+		int arr2[] =
+				{
+						2, 4, 1, 5, 3, 5, 1, 3
+				};
+		int m2 = 2;
+
+		System.out.println(distinctIds(arr2, arr2.length, m2));
 	}
 }

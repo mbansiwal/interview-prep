@@ -28,6 +28,19 @@ public class MoveNegativeToEnd
 			}
 		}
 	}
+
+	static void moveNegativesToEnd(int arr[], int n)
+	{
+		for (int i = 1; i < arr.length; i++)
+		{
+			if(arr[i] < 0 && arr[i-1] > 0){
+				int temp = arr[i-1];
+				arr[i-1] = arr[i];
+				arr[i] = temp;
+			}
+		}
+	}
+
 	static void moveZerosToEnd(int arr[], int n)
 	{
 		int negativeNumberIndex = 0;

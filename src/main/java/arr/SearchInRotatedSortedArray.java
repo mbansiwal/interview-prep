@@ -46,5 +46,11 @@ public class SearchInRotatedSortedArray
 		};
 
 		System.out.println(new SearchInRotatedSortedArray().search(arr, 0));
+
+		int[] arr2 =
+				{
+						3, 4, 5, 1, 2
+				};
+		System.out.println(new SearchInRotatedSortedArray().search(arr2, 5));
 	}
 }

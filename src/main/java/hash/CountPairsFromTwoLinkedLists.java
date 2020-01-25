@@ -40,11 +40,15 @@ public class CountPairsFromTwoLinkedLists
             // if this sum is greater than x, then
             // move itr2 to next node
             else if ((num1 + num2) > x)
+            {
                 num2 = itr2.hasNext() ? itr2.next() : null;
+            }
              
             // else move itr1 to next node 
             else
+            {
                 num1 = itr1.hasNext() ? itr1.next() : null;
+            }
              
         }
                             

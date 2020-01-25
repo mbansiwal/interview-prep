@@ -3,7 +3,7 @@ package string;
 import java.util.HashMap;
 import java.util.Map;
 
-public class SubarraysWithKDistinct
+public class LongestSubarraysWithKDistinct
 {
 	public int subarraysWithKDistinct(char[] A, int K)
 	{
@@ -28,11 +28,11 @@ public class SubarraysWithKDistinct
 
 	public static void main(String[] args)
 	{
-		System.out.println(new SubarraysWithKDistinct().subarraysWithKDistinct("aabacbebebe".toCharArray(), 3));
-		System.out.println(new SubarraysWithKDistinct().subarraysWithKDistinct("aabbcc".toCharArray(), 1));
-		System.out.println(new SubarraysWithKDistinct().subarraysWithKDistinct("aabbcc".toCharArray(), 2));
-		System.out.println(new SubarraysWithKDistinct().subarraysWithKDistinct("aabbcc".toCharArray(), 3));
-		System.out.println(new SubarraysWithKDistinct().subarraysWithKDistinct("aaabbb".toCharArray(), 3));
+		System.out.println(new LongestSubarraysWithKDistinct().subarraysWithKDistinct("aabacbebebe".toCharArray(), 3));
+		System.out.println(new LongestSubarraysWithKDistinct().subarraysWithKDistinct("aabbcc".toCharArray(), 1));
+		System.out.println(new LongestSubarraysWithKDistinct().subarraysWithKDistinct("aabbcc".toCharArray(), 2));
+		System.out.println(new LongestSubarraysWithKDistinct().subarraysWithKDistinct("aabbcc".toCharArray(), 3));
+		System.out.println(new LongestSubarraysWithKDistinct().subarraysWithKDistinct("aaabbb".toCharArray(), 3));
 	}
 }
 

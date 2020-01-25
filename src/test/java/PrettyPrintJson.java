@@ -59,7 +59,7 @@ public class PrettyPrintJson
 				spaces.deleteCharAt(spaces.length() - 1);
 				formattedJson.append(ret).append(spaces).append(c);
 				i++;
-				if (!(i < jsonStr.length() && jsonStr.charAt(i) == ','))
+				if (!(i < jsonStr.length() && (jsonStr.charAt(i) == ',' || jsonStr.charAt(i) == '}' || jsonStr.charAt(i) == ']')))
 				{
 					formattedJson.append(ret).append(spaces);
 				}
