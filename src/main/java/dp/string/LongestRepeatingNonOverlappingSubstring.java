@@ -52,8 +52,11 @@ public class LongestRepeatingNonOverlappingSubstring
 						resLength = LCSRe[i][j];
 						index = Math.max(i, index);
 					}
-				} else
+				}
+				else
+				{
 					LCSRe[i][j] = 0;
+				}
 			}
 		}
 

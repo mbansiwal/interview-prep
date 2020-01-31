@@ -16,7 +16,9 @@ public class LongestSubarraysWithKDistinct
 			window1.add(x);
 
 			while (window1.different() > K)
+			{
 				window1.remove(A[left1++]);
+			}
 			if (window1.different() == K)
 			{
 				maxLength = Math.max(maxLength, right - left1 + 1);

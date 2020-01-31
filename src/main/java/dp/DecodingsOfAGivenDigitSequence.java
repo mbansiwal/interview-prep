@@ -17,7 +17,7 @@ package dp;
  * @author mbansiwal
  *
  */
-public class DecodingsOfAGivenDigitSequence
+public class  DecodingsOfAGivenDigitSequence
 {
 	static int countDecodingDP(char[] digits, int n)
 	{
@@ -42,10 +42,55 @@ public class DecodingsOfAGivenDigitSequence
 		return count[n];
 	}
 
+	static int countDecodingDPOptimal(char[] digits, int n)
+	{
+		int[] table = new int[n];
+
+		if(n < 2){
+			return 1;
+		}
+		table[0] = 1;
+
+		if(isValid(digits[0], digits[1])){
+			table[1] = 2;
+		} else{
+			table[1] = 1;
+		}
+
+		for (int i=2; i < n; ++i){
+			if(digits[i] != '0'){
+				table[i] = table[i-1];
+			}
+
+			if(isValid(digits[i-1], digits[i])){
+				table[i] += table[i-2];
+			}
+		}
+
+		return table[n-1];
+	}
+
+	private static boolean isValid(int firstDigit, int secondDigit){
+		if((firstDigit > '0' && firstDigit < '2') || (firstDigit == '2' && secondDigit <= '6')){
+			return true;
+		}
+		return false;
+	}
+
 	// Driver program to test above function
 	public static void main(String[] args)
 	{
 		char digits[] = "1234".toCharArray();
 		System.out.println("Count is " + countDecodingDP(digits, digits.length));
+		System.out.println("Count is " + countDecodingDPOptimal(digits, digits.length));
+
+		char digits2[] = "12".toCharArray();
+		System.out.println("Count is " + countDecodingDP(digits2, digits2.length));
+		System.out.println("Count is " + countDecodingDPOptimal(digits2, digits2.length));
+
+		char digits3[] = "102".toCharArray();
+		System.out.println("Count is " + countDecodingDP(digits3, digits3.length));
+		System.out.println("Count is " + countDecodingDPOptimal(digits3, digits3.length));
+
 	}
 }

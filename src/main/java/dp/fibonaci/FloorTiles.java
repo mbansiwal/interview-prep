@@ -39,10 +39,12 @@ public class FloorTiles
 			if (i > m)
 			{
 				counts[i] = counts[i - 1] + counts[i - m];
-			} else if (i < m)
+			}
+			else if (i < m)
 			{
 				counts[i] = 1;
-			} else
+			}
+			else
 			{
 				counts[i] = 2;
 			}

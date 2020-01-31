@@ -53,9 +53,7 @@ public class MaizeDestinations {
 	public static void main(String[] args) {
 		int maize[][] =
 		{
-				{
-						0, 0, 0, 0
-				},
+				{0,  0,  0,  0},
                 {0, -1, 0, 0},
                 {-1, 0, 0, 0},
                 {0,  0, 0, 0}};

@@ -17,7 +17,8 @@ public class NumbersWithSameConsecutiveDifferences
 		if (N == 1)
 		{
 			currentDigits.add(0);
-		} else
+		}
+		else
 		{
 			for (int steps = 1; steps <= N - 1; steps++)
 			{

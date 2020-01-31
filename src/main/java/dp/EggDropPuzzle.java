@@ -5,7 +5,7 @@ package dp;
  * https://www.geeksforgeeks.org/eggs-dropping-puzzle-binomial-coefficient-and-binary-search-solution/
  *
  */
-public class EggDropPuzzle
+public class  EggDropPuzzle
 {
 	public static void main(String args[])
 	{

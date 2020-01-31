@@ -83,7 +83,9 @@ public class LongestConsecutivePathFromStartingCharacter
 		// recur for paths with differnt adjacent cells and store
 		// the length of longest path.
 		for (int k = 0; k < 8; k++)
+		{
 			ans = Math.max(ans, 1 + getLenUtil(mat, i + x[k], j + y[k], mat[i][j]));
+		}
 
 		// save the answer and return
 		return dp[i][j] = ans;

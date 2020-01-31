@@ -34,8 +34,9 @@ public class BinarySearchTreeDeleteNode
 			}
 			else
 			{
-				root.data = min(root.right);
-				root.right = deleteNode(root.right, root.data);
+				int minRightNode = min(root.right);
+				root.data = minRightNode;
+				root.right = deleteNode(root.right, minRightNode);
 			}
 		}
 		return root;
