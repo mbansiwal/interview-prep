@@ -22,7 +22,7 @@ public class BackTrack
 		for (int i = start; i < nums.length; i++)
 		{
 			tempList.add(nums[i]);
-			backtrack(list, tempList, nums, i + 1);
+			backtrack(list, tempList, nums,i + 1);
 			tempList.remove(tempList.size() - 1);
 		}
 	}
@@ -42,13 +42,16 @@ public class BackTrack
 	{
 		    list.add(new ArrayList<>(tempList));
 		    for(int i = start; i < nums.length; i++){
-		        if(i > start && nums[i] == nums[i-1]) continue; // skip duplicates
+		        if(i > start && nums[i] == nums[i-1])
+				{
+					continue; // skip duplicates
+				}
 		        tempList.add(nums[i]);
 		        backtrack(list, tempList, nums, i + 1);
 		        tempList.remove(tempList.size() - 1);
 		    }
 	}
-	// Permutations:https:// leetcode.com/problems/permutations/
+	// Permutations:https://leetcode.com/problems/permutations/
 
 	public List<List<Integer>> permute(int[] nums)
 	{
@@ -68,7 +71,9 @@ public class BackTrack
 			for (int i = 0; i < nums.length; i++)
 			{
 				if (tempList.contains(nums[i]))
+				{
 					continue; // element already exists, skip
+				}
 				tempList.add(nums[i]);
 				backtrack(list, tempList, nums);
 				tempList.remove(tempList.size() - 1);
@@ -92,12 +97,15 @@ public class BackTrack
 		if (tempList.size() == nums.length)
 		{
 			list.add(new ArrayList<>(tempList));
-		} else
+		}
+		else
 		{
 			for (int i = 0; i < nums.length; i++)
 			{
 				if (used[i] || i > 0 && nums[i] == nums[i - 1] && !used[i - 1])
+				{
 					continue;
+				}
 				used[i] = true;
 				tempList.add(nums[i]);
 				backtrack(list, tempList, nums, used);
@@ -120,9 +128,13 @@ public class BackTrack
 	private void backtrack3(List<List<Integer>> list, List<Integer> tempList, int[] nums, int remain, int start)
 	{
 		if (remain < 0)
+		{
 			return;
+		}
 		else if (remain == 0)
+		{
 			list.add(new ArrayList<>(tempList));
+		}
 		else
 		{
 			for (int i = start; i < nums.length; i++)
@@ -174,8 +186,7 @@ public class BackTrack
 		}
 	}
 
-	// Palindrome Partitioning:https://
-	// leetcode.com/problems/palindrome-partitioning/
+	// Palindrome Partitioning: https://leetcode.com/problems/palindrome-partitioning/
 
 	public List<List<String>> partition(String s)
 	{
@@ -187,7 +198,9 @@ public class BackTrack
 	public void backtrack(List<List<String>> list, List<String> tempList, String s, int start)
 	{
 		if (start == s.length())
+		{
 			list.add(new ArrayList<>(tempList));
+		}
 		else
 		{
 			for (int i = start; i < s.length(); i++)

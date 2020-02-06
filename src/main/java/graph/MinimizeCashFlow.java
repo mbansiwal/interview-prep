@@ -144,5 +144,40 @@ public class MinimizeCashFlow
 
 		// Print the solution
 		new MinimizeCashFlow().minCashFlow(graph);
+		new MinimizeCashFlow().minimizeCashFlow(graph);
+
+	}
+
+
+	public void minimizeCashFlow(int[][] graph){
+		int N = graph.length;
+		int[] amounts = new int[N];
+
+		for (int p1=0; p1 < N; ++p1){
+			for (int p2=0; p2 < N; ++p2){
+				amounts[p1] += graph[p2][p1] - graph[p1][p2];
+			}
+		}
+		transferMoney(amounts);
+	}
+
+	public void transferMoney(int[] amounts){
+		int maxCreditsIndex = getMax(amounts);
+		int maxDebitsIndex = getMin(amounts);
+
+		if(amounts[maxCreditsIndex] == 0 && amounts[maxDebitsIndex] ==0){
+			return;
+		}
+
+		int amountToTransfer = Math.min(-amounts[maxDebitsIndex], amounts[maxCreditsIndex]);
+
+		amounts[maxCreditsIndex] -= amountToTransfer;
+		amounts[maxDebitsIndex] += amountToTransfer;
+
+
+		System.out.println("person " + maxDebitsIndex +" gives person " +maxCreditsIndex +" amount "+
+				amountToTransfer);
+
+		transferMoney(amounts);
 	}
 }

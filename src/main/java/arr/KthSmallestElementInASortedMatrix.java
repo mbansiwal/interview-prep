@@ -26,13 +26,9 @@ public class KthSmallestElementInASortedMatrix
 			return -1;
 		}
 
-		PriorityQueue<RowColumPair> queue = new PriorityQueue<>(k, new Comparator<RowColumPair>()
-		{
-			public int compare(RowColumPair o1, RowColumPair o2)
-			{
-				return matrix[o1.row][o1.column] - matrix[o2.row][o2.column];
-			};
-		});
+		PriorityQueue<RowColumPair> queue = new PriorityQueue<>(k, (o1, o2) ->
+				matrix[o1.row][o1.column] - matrix[o2.row][o2.column]);
+
 		for (int i = 0; i < rows; i++)
 		{
 			for (int j = 0; j < columns; j++)
@@ -100,13 +96,7 @@ public class KthSmallestElementInASortedMatrix
 			return -1;
 		}
 
-		PriorityQueue<RowColumPair> queue = new PriorityQueue<>(k, new Comparator<RowColumPair>()
-		{
-			public int compare(RowColumPair o1, RowColumPair o2)
-			{
-				return matrix[o1.row][o1.column] - matrix[o2.row][o2.column];
-			};
-		});
+		PriorityQueue<RowColumPair> queue = new PriorityQueue<>(k, (o1, o2) -> matrix[o1.row][o1.column] - matrix[o2.row][o2.column]);
 		queue.add(new RowColumPair(0, 0));
 
 		RowColumPair rowColumPair = null;

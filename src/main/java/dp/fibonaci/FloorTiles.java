@@ -34,7 +34,7 @@ public class FloorTiles
 		int counts[] = new int[n + 1];
 		counts[0] = 0;
 
-		for (int i = 1; i < counts.length; i++)
+		for (int i = 1; i <= n; i++)
 		{
 			if (i > m)
 			{

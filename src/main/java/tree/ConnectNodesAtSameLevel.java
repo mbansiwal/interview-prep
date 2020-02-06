@@ -19,6 +19,9 @@ package tree;
  */
 
 public class ConnectNodesAtSameLevel {
+
+    private Node node;
+
     static class Node
     {
         int data;
@@ -48,26 +51,31 @@ public class ConnectNodesAtSameLevel {
 
         /* Set next right of all descendents of p.
            Assumption:  p is a compete binary tree */
-        void connectRecur(Node p)
+        void connectRecur(Node node)
         {
             // Base case
-            if (p == null)
+            this.node = node;
+            if (this.node == null)
                 return;
 
             // Set the nextRight pointer for p's left child
-            if (p.left != null)
-                p.left.nextRight = p.right;
+            if (node.left != null)
+            {
+                node.left.nextRight = node.right;
+            }
 
             // Set the nextRight pointer for p's right child
             // p->nextRight will be NULL if p is the right most child
             // at its level
-            if (p.right != null)
-                p.right.nextRight = (p.nextRight != null) ?
-                        p.nextRight.left : null;
+            if (node.right != null)
+            {
+                node.right.nextRight = (node.nextRight != null) ?
+                        node.nextRight.left : null;
+            }
 
             // Set nextRight for other nodes in pre order fashion
-            connectRecur(p.left);
-            connectRecur(p.right);
+            connectRecur(node.left);
+            connectRecur(node.right);
         }
 
         // Driver program to test above functions

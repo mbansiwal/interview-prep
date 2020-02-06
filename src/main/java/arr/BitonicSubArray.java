@@ -15,7 +15,8 @@ public class BitonicSubArray
 		{
 			increasingElements[0] = 1;
 			decreasingElements[n - 1] = 1;
-		} else
+		}
+		else
 		{
 			return 0;
 		}

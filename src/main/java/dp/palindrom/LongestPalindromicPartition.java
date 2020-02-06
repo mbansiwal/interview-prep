@@ -36,7 +36,7 @@ public class LongestPalindromicPartition
 					int min = Integer.MAX_VALUE;
 					for (int k = i; k < j; k++)
 					{
-						min = Math.min(min, table[k + 1][j] + table[i][k]);
+						min = Math.min(min, table[i][k] + table[k + 1][j]);
 					}
 					table[i][j] = 1 + min;
 				}
@@ -66,10 +66,10 @@ public class LongestPalindromicPartition
 			}
 		}
 
-		for (int i = 0; i < T.length; i++)
-		{
-			System.out.println(Arrays.toString(T[i]));
-		}
+//		for (int i = 0; i < T.length; i++)
+//		{
+//			System.out.println(Arrays.toString(T[i]));
+//		}
 
 		return T[0][n - 1];
 	}

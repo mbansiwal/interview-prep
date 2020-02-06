@@ -9,12 +9,10 @@ public class FindMissingNumber
 		PriorityQueue<Integer> queue = new PriorityQueue<>();
 		for (int i = 0; i < A.length; ++i)
 		{
-			queue.add(A[i]);
-		}
-
-		while (!queue.isEmpty() && queue.peek() <= 0)
-		{
-			queue.poll();
+			if(A[i] > 0)
+			{
+				queue.add(A[i]);
+			}
 		}
 
 		int count = 1;

@@ -20,7 +20,7 @@ public class CountNumberOfPossibleTriangles
 			{
 				if ((arr[left] + arr[right]) > arr[i])
 				{
-					count+= right-left;
+					count += right-left;
 					right--;
 				}
 				else

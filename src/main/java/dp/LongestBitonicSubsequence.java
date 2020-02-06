@@ -8,13 +8,15 @@ public class LongestBitonicSubsequence {
             all indexes */
         int[] lis = new int[n];
         for (i = 0; i < n; i++)
+        {
             lis[i] = 1;
+        }
 
         /* Compute LIS values from left to right */
         for (i = 1; i < n; i++) {
             for (j = 0; j < i; j++) {
-                if (arr[i] > arr[j] && lis[i] < lis[j] + 1) {
-                    lis[i] = lis[j] + 1;
+                if (arr[i] > arr[j]) {
+                    lis[i] = Math.max(lis[i], lis[j] + 1);
                 }
             }
         }
@@ -29,9 +31,9 @@ public class LongestBitonicSubsequence {
         /* Compute LDS values from right to left */
         for (i = n-2; i >= 0; i--) {
             for (j = n - 1; j > i; j--) {
-                if (arr[i] > arr[j] && lds[i] < lds[j] + 1)
+                if (arr[i] > arr[j])
                 {
-                    lds[i] = lds[j] + 1;
+                    lds[i] = Math.max(lds[i], lds[j] + 1);
                 }
             }
         }

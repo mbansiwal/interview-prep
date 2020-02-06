@@ -43,7 +43,22 @@ class BinaryTreeInorderTraversalWithoutRecursion
     	 }
      }
  }
- 
+
+    void printInorderPractice(Node node) {
+        Stack<Node> stack = new Stack<>();
+
+        while (node != null || stack.isEmpty()) {
+            while (node != null) {
+                stack.push(node);
+                node = node.left;
+            }
+            node = stack.pop();
+            System.out.print(node.data + " ");
+            node = node.right;
+            stack.push(node);
+        }
+    }
+
 	void printInorder2(Node node)
 	{
 		Stack<Node> stack = new Stack<>();

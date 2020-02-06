@@ -42,7 +42,7 @@ public class TrainStationShortestPath {
                       {INF, INF, 0, 70},
                       {INF, INF, INF, 0}
                     };
-        System.out.println("The Minimum cost to reach station "+ N+
+        System.out.println("The Minimum cost to reach station "+ N +
 				" is " + minCost(cost));
     }
 }

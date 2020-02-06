@@ -15,17 +15,19 @@ public class MultiplyTwoStrings
 				int pos1 = i + j;
 				int pos2 = i + j + 1;
 				int sum = mul + pos[pos2];
-				int remainder = sum / 10;
-				int digit = sum % 10;
+				int quotient = sum / 10;
+				int remainder = sum % 10;
 
-				pos[pos1] += remainder;
-				pos[pos2] = digit;
+				pos[pos1] += quotient;
+				pos[pos2] = remainder;
 			}
 		}
 		StringBuilder sb = new StringBuilder();
-		for (int p : pos)
-			if (!(sb.length() == 0 && p == 0))
+		for (int p : pos) {
+			if (!(sb.length() == 0 && p == 0)) {
 				sb.append(p);
+			}
+		}
 		return sb.length() == 0 ? "0" : sb.toString();
 	}
 

@@ -35,7 +35,9 @@ public class SmallestSubarrayWithSumGreaterThanGivenValue
 
 			// If first element itself is greater
 			if (curr_sum > x)
+			{
 				return 1;
+			}
 
 			// Try different ending points for curremt start
 			for (int end = start + 1; end < n; end++)
@@ -47,7 +49,9 @@ public class SmallestSubarrayWithSumGreaterThanGivenValue
 				// this subarray is smaller than current smallest
 				// length, update the smallest length (or result)
 				if (curr_sum > x && (end - start + 1) < min_len)
+				{
 					min_len = (end - start + 1);
+				}
 			}
 		}
 		return min_len;

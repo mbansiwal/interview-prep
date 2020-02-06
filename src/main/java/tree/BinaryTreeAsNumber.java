@@ -18,6 +18,7 @@ public class BinaryTreeAsNumber
 		}
 		StringBuilder sb = new StringBuilder("");
 		transformTree2(node.left, sb);
+
 		sb.append(node.data);
 		StringBuilder sbRight = new StringBuilder("");
 		transformTree2(node.right, sbRight);
@@ -34,6 +35,7 @@ public class BinaryTreeAsNumber
 		sb.append(node.data);
 	}
 
+
 	public static void main(String[] args)
 	{
 		BinaryTreeAsNumber tree = new BinaryTreeAsNumber(4);
@@ -45,6 +47,10 @@ public class BinaryTreeAsNumber
 		tree.root.right.left.right = new Node(7);
 		tree.root.right.left.right.left = new Node(8);
 		System.out.println(tree.transformTree2(tree.root));
+
+		StringBuilder sb = new StringBuilder();
+
+		System.out.println(sb.toString());
 	}
 
 }

@@ -33,20 +33,20 @@ public class ConstructBstFromPreOrder
 		return constructTree(pre, index, size, Integer.MIN_VALUE, Integer.MAX_VALUE);
 	}
 
-	private Node constructTree(int[] pre, Index index, int size, int low, int high)
+	private Node constructTree(int[] pre, Index indexCounter, int size, int low, int high)
 	{
-		if (index.index >= size)
+		if (indexCounter.index >= size)
 		{
 			return null;
 		}
-		int key = pre[index.index];
+		int key = pre[indexCounter.index];
 		Node root = null;
 		if (low < key && key < high)
 		{
 			root = new Node(key);
-			index.index++;
-			root.left = constructTree(pre, index, size, low, key);
-			root.right = constructTree(pre, index, size, key, high);
+			indexCounter.index++;
+			root.left = constructTree(pre, indexCounter, size, low, key);
+			root.right = constructTree(pre, indexCounter, size, key, high);
 		}
 
 		return root;

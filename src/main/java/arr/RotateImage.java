@@ -41,16 +41,6 @@ public class RotateImage
 			}
 		}
 
-		for (int i = 0; i < matrix.length; i++)
-		{
-			for (int j = 0; j < matrix[0].length; j++)
-			{
-				System.out.print(matrix[i][j] + ",");
-			}
-			System.out.println();
-		}
-		System.out.println();
-
 		for (int i = 0; i < rows; i++)
 		{
 			for (int j = i + 1; j < columns; j++)
@@ -62,8 +52,21 @@ public class RotateImage
 		}
 	}
 
+	private void print(int[][] matrix){
+		for (int i = 0; i < matrix.length; i++)
+		{
+			for (int j = 0; j < matrix[0].length; j++)
+			{
+				System.out.print(matrix[i][j] + ",");
+			}
+			System.out.println();
+		}
+		System.out.println();
+	}
+
 	public static void main(String[] args)
 	{
+		RotateImage rotateImage = new RotateImage();
 		int matrix[][] = 
 				{
 				  {1,2,3},
@@ -79,15 +82,8 @@ public class RotateImage
 		 * 8 5 2
 		 * 9 6 3
 		 */
-		new RotateImage().rotateClockWise(matrix);
-		for (int i = 0; i < matrix.length; i++)
-		{
-			for (int j = 0; j < matrix[0].length; j++)
-			{
-				System.out.print(matrix[i][j] + ",");
-			}
-			System.out.println();
-		}
+		rotateImage.rotateClockWise(matrix);
+		rotateImage.print(matrix);
 
 		System.out.println();
 		int matrix2[][] =
@@ -105,16 +101,9 @@ public class RotateImage
 						14, 15, 16, 17
 				}
 		};
-		new RotateImage().rotateAntiClockWise(matrix2);
-		for (int i = 0; i < matrix2.length; i++)
-		{
-			for (int j = 0; j < matrix2[0].length; j++)
-			{
-				System.out.print(matrix2[i][j] + ",");
-			}
-			System.out.println();
-		}
-		System.out.println();
+		rotateImage.rotateAntiClockWise(matrix2);
+
+		rotateImage.print(matrix2);
 		
 		int matrix3[][] = {
 				{5,  1,  9,  11},
@@ -128,14 +117,7 @@ public class RotateImage
 		 * 
 		 * 15 2 14
 		 */
-		new RotateImage().rotateClockWise(matrix3);
-		for (int i = 0; i < matrix3.length; i++)
-		{
-			for (int j = 0; j < matrix3[0].length; j++)
-			{
-				System.out.print(matrix3[i][j] + ",");
-			}
-			System.out.println();
-		}
+		rotateImage.rotateClockWise(matrix3);
+		rotateImage.print(matrix3);
 	}
 }

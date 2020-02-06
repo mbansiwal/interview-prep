@@ -32,15 +32,8 @@ public class TopKFrequentElements
 			count.put(nums[i], count.getOrDefault(nums[i], 0) + 1);
 		}
 
-		java.util.PriorityQueue<java.util.Map.Entry<Integer, Integer>> queue = new java.util.PriorityQueue<>(k + 1,
-				new Comparator<java.util.Map.Entry<Integer, Integer>>()
-				{
-					public int compare(java.util.Map.Entry<Integer, Integer> o1,
-							java.util.Map.Entry<Integer, Integer> o2)
-					{
-						return o1.getValue() - o2.getValue();
-					};
-				});
+		java.util.PriorityQueue<java.util.Map.Entry<Integer, Integer>> queue = new java.util.PriorityQueue<>(k,
+				(o1, o2) -> o2.getValue() - o1.getValue());
 
 		Iterator<java.util.Map.Entry<Integer, Integer>> itr = count.entrySet().iterator();
 		for (int i = 0; i < k; i++)
@@ -52,15 +45,13 @@ public class TopKFrequentElements
 		while (itr.hasNext())
 		{
 			queue.offer(itr.next());
-			queue.poll();
 		}
 
-		while (!queue.isEmpty())
+		while (!queue.isEmpty() && --k >=0)
 		{
-			entries.add(queue.remove().getKey());
+			entries.add(queue.poll().getKey());
 		}
 
-		Collections.reverse(entries);
 		System.out.println(entries);
 		return entries;
 	}

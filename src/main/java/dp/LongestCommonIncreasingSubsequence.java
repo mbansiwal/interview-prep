@@ -27,8 +27,6 @@ public class LongestCommonIncreasingSubsequence
 		// LCIS ending with arr2[j]. We initialize
 		// it as 0,
 		int table[] = new int[m];
-		for (int j = 0; j < m; j++)
-			table[j] = 0;
 
 		// Traverse all elements of arr1[]
 		for (int i = 0; i < n; i++)
@@ -62,9 +60,11 @@ public class LongestCommonIncreasingSubsequence
 		// The maximum value in table[] is out
 		// result
 		int result = 0;
-		for (int i = 0; i < m; i++)
-			if (table[i] > result)
+		for (int i = 0; i < m; i++) {
+			if (table[i] > result) {
 				result = table[i];
+			}
+		}
 
 		System.out.println(result);
 	}

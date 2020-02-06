@@ -19,12 +19,12 @@ import java.util.Arrays;
  * // 2 + 1 = 6 and further breaking 3, 2
  * and 1 we get maximum // summation as 1, so breaking 6 in three parts produces
  * // maximum sum 6 only similarly breaking 4 in three // parts we can get
- * maximum sum 4 and same for 3 also. // Thus maximum sum by breaking number in
+ * maximum sum 4 ,[l and same for 3 also. // Thus maximum sum by breaking number in
  * parts is=13
  * 
  * Input : n = 24 Output : 27 // We break n = 24 in three parts {24/2, 24/3,
  * 24/4} // = {12, 8, 6}, now current sum is = (12 + 8 + 6) = 16 // As seen in
- * example, recursively breaking 12 would // produce value 13. So our maximum
+ * example, recursively breaking 12 would // produce vamlue 13. So our maximum
  * sum is 13 + 8 + 6 = 27. // Note that recursively breaking 8 and 6 doesn't
  * produce // more values, that is why they are not broken further.
  * 

@@ -21,9 +21,9 @@ public class LIS {
 		for (i = 1; i < n; i++)
 		{	
 			for (j = 0; j < i; j++)
-			{	if (arr[i] > arr[j] && (lis[i] < lis[j] + 1))
+			{	if (arr[i] > arr[j])
 				{
-					lis[i] = lis[j] + 1;
+					lis[i] = Math.max(lis[i], lis[j] + 1);
 				}
 			}
 		}

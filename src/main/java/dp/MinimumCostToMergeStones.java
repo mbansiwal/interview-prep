@@ -2,6 +2,10 @@ package dp;
 
 import java.util.Arrays;
 
+
+/**
+ * https://leetcode.com/problems/minimum-cost-to-merge-stones/
+ */
 public class MinimumCostToMergeStones
 {
 	public int mergeStones(int[] stones, int K)

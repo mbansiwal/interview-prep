@@ -134,10 +134,6 @@ public class OptimalChapterReadList
 			}
 			System.out.print("Day: "+day);
 			System.out.print("Chapters: ");
-			
-			
-			
-			
 		}
 	}
 	

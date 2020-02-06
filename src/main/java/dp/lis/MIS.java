@@ -13,7 +13,7 @@ public class MIS {
 			for (int j = 0; j < i; j++)
 			{	if (arr[i] > arr[j])
 				{
-					lis[i] = Math.max(lis[i], lis[j]+arr[i]);
+					lis[i] = Math.max(lis[i], lis[j] + arr[i]);
 				}
 			}
 		}

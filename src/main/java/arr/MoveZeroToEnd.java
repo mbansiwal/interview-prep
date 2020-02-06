@@ -5,7 +5,7 @@ public class MoveZeroToEnd
 	static void moveZerosToEnd(int arr[], int n)
 	{
 		int j = 0;
-		for (int i = 1; i < arr.length; i++)
+		for (int i = 0; i < arr.length; i++)
 		{
 			if (arr[i] > 0)
 			{
@@ -28,7 +28,7 @@ public class MoveZeroToEnd
 	{
 		int arr[] =
 		{
-				0, 1, 9, 8, 4, 0, 0, 2, 7, 0, 6, 0, 9
+				1, 9, 8, 4, 0, 0, 2, 7, 0, 6, 0, 9
 		};
 		int n = arr.length;
 
