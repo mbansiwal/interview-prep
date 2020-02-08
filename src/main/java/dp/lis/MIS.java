@@ -17,31 +17,13 @@ public class MIS {
 				}
 			}
 		}
-		int max = lis[0];
-		
-		print(lis);
-		/* Pick maximum of all LIS values */
-		for (int i = 1; i < n; i++)
-		{	
-			if (max < lis[i])
-			{
-				max = lis[i];
-			}
-		}
-		return max;
+
+		return Arrays.stream(lis).max().getAsInt();
 	}
 
 	public static void main(String args[]) {
 		int arr[] = {4,	6,	1,	3,	8,	4,	6};
 		System.out.println("\n"+mis(arr));
 		
-	}
-	
-	private static void print(int[] table)
-	{
-		for (int i : table) {
-				System.out.print(i+",");
-		}
- 		System.out.println();
 	}
 }

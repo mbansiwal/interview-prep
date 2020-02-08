@@ -30,5 +30,8 @@ public class LongestTurbulentArray
 				9, 4, 2, 10, 7, 8, 8, 1, 9
 		};
 		System.out.println(new LongestTurbulentArray().maxTurbulenceSize(arr));
+
+		int arr1[] = {2,1,4,7,3,2,5};
+		System.out.println(new LongestTurbulentArray().maxTurbulenceSize(arr1));
 	}
 }
