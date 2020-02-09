@@ -1,6 +1,6 @@
 package arr;
 
-public class MaxCircularSum {
+public class KadaneMaxCircularSum {
 
     public static void main (String[] args)
     {
