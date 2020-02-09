@@ -10,13 +10,13 @@ public class FindFirstAndLastPositionOfElementInSortedArray
 		{
 				-1, -1
 		};
-		int left = binarySearch(nums, target, 0, nums.length - 1, true);
+		int left = binarySearch(nums, target, 0, nums.length, true);
 		if (left == nums.length || nums[left] != target)
 		{
 			return range;
 		}
 
-		int right = binarySearch(nums, target, left, nums.length - 1, false) - 1;
+		int right = binarySearch(nums, target, left, nums.length, false) -1;
 		range[0] = left;
 		range[1] = right;
 		return range;
@@ -26,11 +26,8 @@ public class FindFirstAndLastPositionOfElementInSortedArray
 	{
 		while (low < high)
 		{
-			int mid = low + (high - low) / 2;
-			if (nums[mid] > target)
-			{
-				high = mid - 1;
-			} else if (left && target == nums[mid])
+			int mid = (low + high) / 2;
+			if (nums[mid] > target || (left && target == nums[mid]))
 			{
 				high = mid;
 			} else
@@ -45,9 +42,11 @@ public class FindFirstAndLastPositionOfElementInSortedArray
 	{
 		int[] nums =
 		{
-				5, 7, 7, 8, 8, 10
+				5, 7, 7, 8, 8, 10, 11, 11
 		};
+		System.out.println(Arrays.toString(new FindFirstAndLastPositionOfElementInSortedArray().searchRange(nums, 7)));
 		System.out.println(Arrays.toString(new FindFirstAndLastPositionOfElementInSortedArray().searchRange(nums, 8)));
+		System.out.println(Arrays.toString(new FindFirstAndLastPositionOfElementInSortedArray().searchRange(nums, 11)));
 		System.out.println(Arrays.toString(new FindFirstAndLastPositionOfElementInSortedArray().searchRange(nums, 6)));
 	}
 }

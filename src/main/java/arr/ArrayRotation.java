@@ -49,13 +49,13 @@ public class ArrayRotation
 	 *
 	 * @param arr
 	 * @param n
-	 * @param k
+	 * @param d
 	 */
-	static void rightRotateInPlace(int arr[], int n, int k)
+	static void rightRotateInPlace(int arr[], int n, int d)
 	{
 		reverseArray(arr, 0, n - 1);
-		reverseArray(arr, 0, k - 1);
-		reverseArray(arr, k, n - 1);
+		reverseArray(arr, 0, d - 1);
+		reverseArray(arr, d, n - 1);
 		System.out.println();
 	}
 
