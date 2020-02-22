@@ -1,12 +1,13 @@
 package arr;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
 public class CombinationSumOfCoins
 {
 	public void printSums(int c1, int c2, int c3) {
-		int start = Math.min(c1, Math.min(c2, c3));
+		int start = Arrays.stream(new int[]{c1,c2,c3}).min().getAsInt();
 		Set<Integer> sumSet = new HashSet<>();
 		sumSet.add(0);
 		for (int sum = start; sum < 1000; sum++)

@@ -41,5 +41,8 @@ public class BitonicSubArray
 	public static void main(String[] args) {
 		int arr[] = {12, 4, 78, 90, 45, 23};
 		System.out.println(findMax(arr));
+
+		int arr2[] = {2,1,4,7,3,2,5};
+		System.out.println(findMax(arr2));
 	}
 }

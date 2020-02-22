@@ -39,7 +39,7 @@ public class CountInversionsInAnArray {
     }
 
     private void updateBinaryIndexTree(int[] tree, int index, int value){
-        while(index <= tree.length){
+        while(index < tree.length){
             tree[index] += value;
             index += index & (-index);
         }
@@ -93,5 +93,8 @@ public class CountInversionsInAnArray {
         int arr[] = {8, 4, 2, 1};
         System.out.println(new CountInversionsInAnArray().countInversions(arr));
         System.out.println(new CountInversionsInAnArray().findInversions(arr));
+        int arr2[] = new int[] { 1, 20, 6, 4, 5 };
+        System.out.println(new CountInversionsInAnArray().countInversions(arr2));
+        System.out.println(new CountInversionsInAnArray().findInversions(arr2));
     }
 }
