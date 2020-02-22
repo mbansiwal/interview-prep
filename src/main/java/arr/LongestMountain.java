@@ -27,8 +27,12 @@ public class LongestMountain {
         return ans;
     }
 
+
     public static void main(String[] args){
         int arr[] = {2,1,4,7,3,2,5};
         System.out.println(new LongestMountain().longestMountain(arr));
+
+        //it is same bitonic max sum
+        System.out.println(BitonicSubArray.findMax(arr));
     }
 }

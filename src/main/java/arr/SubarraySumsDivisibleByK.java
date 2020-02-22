@@ -34,7 +34,9 @@ public class SubarraySumsDivisibleByK
 		{
 			sum = (sum + a) % K;
 			if (sum < 0)
+			{
 				sum += K; // Because -1 % 5 = -1, but we need the positive mod 4
+			}
 			count += map[sum];
 			map[sum]++;
 		}

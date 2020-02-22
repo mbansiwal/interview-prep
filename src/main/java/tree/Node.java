@@ -5,6 +5,7 @@ public class Node {
 	public Node left, right;
 	public int level;
 	public boolean isThreaded = false;
+	public Node nextRight;
 
 	 public Node(int item)
 	 {

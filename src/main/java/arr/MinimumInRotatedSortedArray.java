@@ -105,7 +105,7 @@ public class MinimumInRotatedSortedArray
 		System.out.println(new MinimumInRotatedSortedArray().findMin(arr3));
 		int[] arr4 =
 		{
-				5, 5, 7, 8, 9, 5, 5, 5, 6
+				7, 8, 9, 5, 5, 5, 6
 		};
 		System.out.println(new MinimumInRotatedSortedArray().findMin(arr4));
 	}

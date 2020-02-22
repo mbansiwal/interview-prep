@@ -36,7 +36,7 @@ public class BinaryTreeConstructionFromInAndPre {
 	 int search(int[] in, int node, int inStart, int inEnd)
 	 {
 		 int i=inStart;
-		 for (;i <= inEnd; ++i) 
+		 for (;i <= inEnd; ++i)
 		 {
 			if(in[i] == node)
 			{

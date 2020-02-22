@@ -56,7 +56,9 @@ public class ConnectNodesAtSameLevel {
             // Base case
             this.node = node;
             if (this.node == null)
+            {
                 return;
+            }
 
             // Set the nextRight pointer for p's left child
             if (node.left != null)
@@ -65,7 +67,7 @@ public class ConnectNodesAtSameLevel {
             }
 
             // Set the nextRight pointer for p's right child
-            // p->nextRight will be NULL if p is the right most child
+            // p->nextRight will be NULL if pp076 is the right most child
             // at its level
             if (node.right != null)
             {

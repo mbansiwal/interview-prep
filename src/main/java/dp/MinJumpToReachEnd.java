@@ -113,5 +113,10 @@ public class MinJumpToReachEnd {
         System.out.println(mj.minimumJumps(arr3));
 //        System.out.print(mj.jump(arr3));
 
+        int[] arr4 = { 1, 3, 6, 1, 0, 9 };
+        System.out.println(mj.minimumJumps(arr4));
+
+        int arr5[] = {1, 3, 6, 3, 2, 3, 6, 8, 9, 5};
+        System.out.println(mj.minimumJumps(arr5));
     }
 }

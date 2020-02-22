@@ -2,6 +2,9 @@ package arr;
 
 import java.util.Arrays;
 
+/**
+ * https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array
+ */
 public class FindFirstAndLastPositionOfElementInSortedArray
 {
 	public int[] searchRange(int[] nums, int target)

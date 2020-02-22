@@ -22,7 +22,14 @@ public class Test {
 		Test test = new Test();
 
 
-		test.addTwoNumbers();
+//		test.addTwoNumbers();
+
+		int i = 4;
+		System.out.println(i & 1);
+		System.out.println(i & 2);
+		System.out.println(i & 4);
+		System.out.println(i & 8);
+		System.out.println(i & 16);
 	}
 
 	class ListNode

@@ -5,7 +5,7 @@ package arr;
  */
 public class BitonicSubArray 
 {
-	private static int findMax(int[] arr)
+	public static int findMax(int[] arr)
 	{
 		int n = arr.length;
 		int[] increasingElements = new int[n];
