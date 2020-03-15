@@ -2,7 +2,8 @@ package tree;
 
 //Java program to print left view of binary tree
 /* Class to print the left view */
-class BinaryTreeIdenticalTree
+class
+BinaryTreeIdenticalTree
 {
 	Node root;
 	static int maxLevel = 0;

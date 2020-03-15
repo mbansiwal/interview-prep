@@ -30,8 +30,8 @@ public class SegmentTree {
 
         int mid = (low+high)/2;
 
-        constructTree(2*pos+1, low, mid);
-        constructTree(2*pos+2, mid+1, high);
+        constructTree(2*pos + 1, low, mid);
+        constructTree(2*pos + 2, mid+1, high);
         segmentTree[pos] = Math.min(segmentTree[2*pos+1], segmentTree[2*pos+2]);
     }
 
@@ -48,10 +48,10 @@ public class SegmentTree {
             return Integer.MAX_VALUE;
         }
 
-        if(low>= high){
+        if(low >= high){
             return Integer.MAX_VALUE;
         }
-        int mid = (low+high)/2;
+        int mid = (low + high)/2;
         return Math.min(rangeQuery(queryLow, queryHigh, low, mid, 2*pos+1),
                 rangeQuery(queryLow, queryHigh, mid+1, high, 2*pos+2));
     }

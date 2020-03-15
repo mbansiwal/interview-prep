@@ -108,12 +108,16 @@ class Graph
 
 				// (1) u is root of DFS tree and has two or more chilren.
 				if (parent[u] == NIL && children > 1)
+				{
 					ap[u] = true;
+				}
 
 				// (2) If u is not root and low value of one of its child
 				// is more than discovery value of u.
 				if (parent[u] != NIL && low[v] >= disc[u])
+				{
 					ap[u] = true;
+				}
 			}
 
 			// Update low value of u for parent function calls.
@@ -145,14 +149,19 @@ class Graph
 
 		// Call the recursive helper function to find articulation
 		// points in DFS tree rooted with vertex 'i'
-		for (int i = 0; i < V; i++)
-			if (visited[i] == false)
+		for (int i = 0; i < V; i++) {
+			if (!visited[i]) {
 				APUtil(i, visited, disc, low, parent, ap);
+			}
+		}
 
 		// Now ap[] contains articulation points, print them
-		for (int i = 0; i < V; i++)
-			if (ap[i] == true)
+		for (int i = 0; i < V; i++) {
+			if (ap[i])
+			{
 				System.out.print(i + " ");
+			}
+		}
 	}
 
 }

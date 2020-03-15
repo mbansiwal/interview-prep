@@ -27,15 +27,7 @@ public class LIS {
 				}
 			}
 		}
-		/* Pick maximum of all LIS values */
-		for (i = 0; i < n; i++)
-		{	
-			if (max < lis[i])
-			{
-				max = lis[i];
-			}
-		}
-		return max;
+		return Arrays.stream(lis).max().getAsInt();
 	}
 
 	public static void main(String args[]) {
@@ -62,7 +54,7 @@ public class LIS {
 		System.out.println("mySol "+ mySol(arr));
 		
 		Pair[] pairs = {new Pair(5, 24), new Pair(15, 25), new Pair(27, 40), new Pair(50, 60)};
-		System.out.println(LISOfPairs(pairs));
+		System.out.println(lisOfPairs(pairs));
 	}
 	
 	private static int[] mySolution(int[] arr)
@@ -82,35 +74,6 @@ public class LIS {
 		return ls;
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	private static int mySol(int[] arr)
 	{
 		int[] T = new int[arr.length];
@@ -127,12 +90,7 @@ public class LIS {
 		return findMax(T);
 		
 	}
-	
-	
-	
-	
-	
-	
+
 	private static int findMax(int[] T)
 	{
 		int maxVal = T[0];
@@ -145,18 +103,7 @@ public class LIS {
 		return maxVal;
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	static class Pair
 	{
 		int a;
@@ -175,16 +122,8 @@ public class LIS {
 		}
 		
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	private static int LISOfPairs(Pair[] pairs)
+
+	private static int lisOfPairs(Pair[] pairs)
 	{
 		int n = pairs.length;
 		int[] table = new int[n];

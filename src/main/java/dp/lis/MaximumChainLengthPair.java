@@ -34,17 +34,12 @@ public class MaximumChainLengthPair {
 			{
 				if(pairs[i].first > pairs[j].second)
 				{
-					maxIncreasingChain[i] = Math.max(maxIncreasingChain[j] +1, maxIncreasingChain[i]);
+					maxIncreasingChain[i] = Math.max(maxIncreasingChain[j] + 1, maxIncreasingChain[i]);
 				}
 			}
 		}
 		
-		int max = maxIncreasingChain[0];
-		for (int i = 1; i < maxIncreasingChain.length; i++) 
-		{
-			max = Math.max(maxIncreasingChain[i], max);
-		}
-		System.out.println(max);
+		System.out.println(Arrays.stream(maxIncreasingChain).max().getAsInt());
 	}
 	
 	public static void main(String[] args) 

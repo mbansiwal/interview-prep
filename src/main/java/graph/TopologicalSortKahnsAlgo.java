@@ -118,7 +118,9 @@ public class TopologicalSortKahnsAlgo
 		for (int i = 0; i < V; i++)
 		{
 			if (indegree[i] == 0)
+			{
 				q.add(i);
+			}
 		}
 
 		// Initialize count of visited vertices
@@ -141,7 +143,9 @@ public class TopologicalSortKahnsAlgo
 			{
 				// If in-degree becomes zero, add it to queue
 				if (--indegree[node] == 0)
+				{
 					q.add(node);
+				}
 			}
 			cnt++;
 		}

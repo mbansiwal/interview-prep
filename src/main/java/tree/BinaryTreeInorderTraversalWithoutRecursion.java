@@ -14,50 +14,6 @@ class BinaryTreeInorderTraversalWithoutRecursion
      root = null;
  }
 
- /* Given a binary tree, print its nodes in inorder*/
- void printInorder(Node node)
- {
-     if (node == null)
-         return;
-
-     Stack<Node> stack = new Stack<>();
-     while(node != null)
-     {
-    	 stack.push(node);
-    	 node = node.left;
-     }
-    
-     while(!stack.isEmpty())
-     {
-    	 node = stack.pop();
-    	 System.out.print(node.data + " ");
-    	 if(node.right != null)
-    	 {
-    		 node = node.right;
-    		  
-    		 while(node != null)
-    		 {
-    			 stack.push(node);
-    			 node = node.right;
-    		 }
-    	 }
-     }
- }
-
-    void printInorderPractice(Node node) {
-        Stack<Node> stack = new Stack<>();
-
-        while (node != null || stack.isEmpty()) {
-            while (node != null) {
-                stack.push(node);
-                node = node.left;
-            }
-            node = stack.pop();
-            System.out.print(node.data + " ");
-            node = node.right;
-            stack.push(node);
-        }
-    }
 
 	void printInorder2(Node node)
 	{
@@ -78,7 +34,7 @@ class BinaryTreeInorderTraversalWithoutRecursion
 	}
 
  // Wrappers over above recursive functions
- void printInorder()    {     printInorder(root);   }
+ void printInorder()    {     printInorder2(root);   }
 
  // Driver method
  public static void main(String[] args)
@@ -92,8 +48,5 @@ class BinaryTreeInorderTraversalWithoutRecursion
 
      System.out.println("\nInorder traversal of binary tree is ");
      tree.printInorder();
-
-		System.out.println();
-		tree.printInorder2(tree.root);
  }
 }

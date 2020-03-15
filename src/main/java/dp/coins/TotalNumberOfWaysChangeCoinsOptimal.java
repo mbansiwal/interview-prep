@@ -2,24 +2,16 @@ package dp.coins;
 
 public class TotalNumberOfWaysChangeCoinsOptimal {
 	public static void main(String[] args) {
-		// long[] table = getTable(20, 3,5,10);
-		// System.out.println(table[20]);
-		// table = getTable(13, 3, 5, 10);
-		// System.out.println(table[13]);
-		// System.out.println(count(4, 1, 2));
-//		for (long is : table) {
-//				System.out.print(is+",");
-//			System.out.println();
-//		}
+		System.out.println(count(4, 1, 2, 3));
 
-// 		System.out.println(count(20));
 		int[] nums =
 		{
 				1, 2, 3
 		};
-
 		System.out.println(new TotalNumberOfWaysChangeCoinsOptimal()
 				.combinationSum4WithCoinChangeWhenDuplicateComboAllowed(nums, 4));
+		System.out.println(new TotalNumberOfWaysChangeCoinsOptimal()
+				.combinationSum4WithCoinChangeWhenDuplicateComboAllowedPractice(nums, 4));
 	}
 	
 	private static long[] getTable(int totalCoinValue, int... coin)
@@ -60,6 +52,21 @@ public class TotalNumberOfWaysChangeCoinsOptimal {
 	    return table[n];
 	}
 
+	public int combinationSum4WithCoinChangeWhenDuplicateComboAllowedPractice(int[] nums, int target)
+	{
+		int[] table = new int[target+1];
+		table[0] = 1;
+		for(int i = 1; i <= target; ++i){
+			for(int j = 0; j < nums.length; ++j){
+				int coinValue = nums[j];
+				if(i >= coinValue){
+					table[i] += table[i - coinValue];
+				}
+			}
+		}
+		return table[target];
+	}
+
 	public int combinationSum4WithCoinChangeWhenDuplicateComboAllowed(int[] nums, int target)
 	{
 		int[] comb = new int[target + 1];
@@ -68,9 +75,10 @@ public class TotalNumberOfWaysChangeCoinsOptimal {
 		{
 			for (int j = 0; j < nums.length; j++)
 			{
-				if (i - nums[j] >= 0)
+				int coinValue = nums[j];
+				if (i - coinValue >= 0)
 				{
-					comb[i] += comb[i - nums[j]];
+					comb[i] += comb[i - coinValue];
 				}
 			}
 		}

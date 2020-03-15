@@ -27,7 +27,7 @@ public class MinimumCostPath0ToN {
 			T[0][j+1] = cost[0][j];
 		}
     	
-    	for (int i = 1; i < m; i++) 
+    	for (int i = 1; i < m; i++)
     	{
     		for (int j = 1; j <= n; j++)
 			{

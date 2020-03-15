@@ -20,6 +20,17 @@ import java.util.*;
  * Explanation : there is not any subset such
  * that product of elements is less than 1
  *
+ * How to use MEET IN THE MIDDLE Approach :First of all we simply divide the given array into two equal parts and
+ * after that we generate all possible subsets for both parts of array and store value of elements product
+ * for each subset separately into two vectors (say subset1 & subset2). Now this will cost O(2n/2) time complexity.
+ * Now if we sort these two vectors(subset1 & subset2) having (2n/2) elements
+ * each then this will cost O(2n/2*log2n/2) ≈ O(n*(2n/2)) Time complexity.
+ * In next step we traverse one vector subset1 with 2n/2 elements and find the upper bound of k/subset1[i]
+ * in second vector which will tell us the count of total elements whose products will be less than or equal to k.
+ * And thus for each element in subset1 we will try to perform a binary search in form of upper_bound in subset2
+ * resulting again a Time complexity of O(n*(2n/2)). So, if we try to compute our overall complexity for this
+ * approach we will have O(n*(2n/2) + n*(2n/2) + n*(2n/2)) ≈ O(n*(2n/2)) as our time complexity which is much
+ * efficient than our brute force approach.
  */
 public class NumberOfSubsetsWithProductLessThanK {
     public static int findSubset(int[] arr,  int k){

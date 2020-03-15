@@ -21,8 +21,7 @@ Input: n = 4
 Output: 9
 For four elements say {0, 1, 2, 3}, there are 9
 possible derangements {1, 0, 3, 2} {1, 2, 3, 0}
-{1, 3, 0, 2}, {2, 3, 0, 1}, {2, 0, 3, 1}, {2, 3,
-1, 0}, {3, 0, 1, 2}, {3, 2, 0, 1} and {3, 2, 1, 0}
+{1, 3, 0, 2}, {2, 3, 0, 1}, {2, 0, 3, 1}, {2, 3,1, 0}, {3, 0, 1, 2}, {3, 2, 0, 1} and {3, 2, 1, 0}
  * @author mbansiwal
  *
  */
@@ -34,7 +33,6 @@ public class CountDerangements
 	    int der[] = new int[n + 1];
 	 
 	    // Base cases
-//	    der[0] = 1;
 	    der[1] = 0;
 	    der[2] = 1;
 	 

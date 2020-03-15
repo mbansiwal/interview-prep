@@ -31,7 +31,8 @@ public class LongestPalindromicPartition
 				if (checkPalendrom(str, i, j))
 				{
 					table[i][j] = 0;
-				} else
+				}
+				else
 				{
 					int min = Integer.MAX_VALUE;
 					for (int k = i; k < j; k++)
@@ -40,7 +41,6 @@ public class LongestPalindromicPartition
 					}
 					table[i][j] = 1 + min;
 				}
-
 			}
 		}
 		return table[0][n - 1];

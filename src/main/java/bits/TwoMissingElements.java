@@ -1,6 +1,7 @@
 package bits;
 
-public class TwoMissingElements
+public class
+TwoMissingElements
 {
 	public void findTwoMissingElements(int[] arr)
 	{

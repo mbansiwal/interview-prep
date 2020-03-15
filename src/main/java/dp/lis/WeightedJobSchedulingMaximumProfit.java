@@ -14,19 +14,6 @@ class Job{
     }
 }
 
-class FinishTimeComparator implements Comparator<Job>{
-
-    @Override
-    public int compare(Job arg0, Job arg1) {
-        if(arg0.end <= arg1.end){
-            return -1;
-        }else{
-            return 1;
-        }
-    }
-    
-}
-
 /**
  * http://www.cs.princeton.edu/courses/archive/spr05/cos423/lectures/06dynamic-programming.pdf
  * Given set of jobs with start and end interval and profit, how to maximize profit such that 
@@ -49,12 +36,7 @@ public class WeightedJobSchedulingMaximumProfit {
 			}
 		}
 
-		int profit = Integer.MIN_VALUE;
-		for (int i = 0; i < table.length; i++)
-		{
-			profit = Math.max(profit, table[i]);
-		}
-		System.out.println(profit);
+		System.out.println(Arrays.stream(table).max().getAsInt());
 	}
 
     /**
@@ -67,8 +49,7 @@ public class WeightedJobSchedulingMaximumProfit {
      */
     public int maximum(Job[] jobs){
         int T[] = new int[jobs.length];
-        FinishTimeComparator comparator = new FinishTimeComparator();
-        Arrays.sort(jobs, comparator);
+        Arrays.sort(jobs, (a1, a2) -> a1.end - a2.end);
         
         T[0] = jobs[0].profit;
         for(int i=1; i < jobs.length; i++){

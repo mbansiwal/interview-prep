@@ -36,9 +36,9 @@ public class NumberOfIsland2D {
             for(int k =0; k < dx.length; ++k){
                 int x1 = x + dx[k];
                 int y1 = y + dy[k];
-                int idxNeighbour = n*x + y;
+                int idxNeighbour = n*x1 + y;
 
-                if(x >=0 && x < m && y>=0 && y < n && parents[idxNeighbour] != -1){
+                if(x1 >=0 && x1 < m && y1 >= 0 && y1 < n && parents[idxNeighbour] != -1){
                     int p = getParent(parents, idxNeighbour);
                     if(parents[p] != idx){
                         parents[p] = idx;
@@ -52,8 +52,8 @@ public class NumberOfIsland2D {
     }
 
     private int getParent(int[] parents, int idx) {
-        while(parents[idx] == -1){
-            parents[idx] = idx;
+        while(parents[idx] != idx){
+             idx = parents[idx];
         }
         return idx;
     }

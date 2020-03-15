@@ -123,5 +123,10 @@ public class AdjacentAlphabetCombination
 		new AdjacentAlphabetCombination().allCombinations(arr2, result, 0, 0, 2);
 		System.out.println("========");
 		new AdjacentAlphabetCombination().allCombinations(arr2, new ArrayList<>(), 0, 2);
+
+		int arr3[] = {1,2,3};
+		new AdjacentAlphabetCombination().allCombinations(arr3, new ArrayList<>(), 0, 2);
+		int arr4[] = {1,2,1,3};
+		new AdjacentAlphabetCombination().allCombinations(arr4, new ArrayList<>(), 0, 2);
 	}
 }
