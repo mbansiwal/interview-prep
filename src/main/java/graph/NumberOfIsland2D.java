@@ -5,6 +5,9 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
+ *
+ * https://www.programcreek.com/2014/04/leetcode-number-of-islands-java/
+ *
  * A 2d grid map of m rows and n columns is initially filled with water.
  * We may perform an addLand operation which turns the water at position (row, col) into a land.
  * Given a list of positions to operate, count the number of islands after each addLand operation.
@@ -36,7 +39,7 @@ public class NumberOfIsland2D {
             for(int k =0; k < dx.length; ++k){
                 int x1 = x + dx[k];
                 int y1 = y + dy[k];
-                int idxNeighbour = n*x1 + y;
+                int idxNeighbour = n*x1 + y1;
 
                 if(x1 >=0 && x1 < m && y1 >= 0 && y1 < n && parents[idxNeighbour] != -1){
                     int p = getParent(parents, idxNeighbour);

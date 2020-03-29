@@ -18,6 +18,8 @@ public class RegexPatternSearch {
 		
 		System.out.println(ls[text.length][pattern.length]);
 
+
+
 		System.out.println(isMatch("mississippi", "mis*is*ip*."));
 		System.out.println(isMatch("cb", "ca*b"));
 	}

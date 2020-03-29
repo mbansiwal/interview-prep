@@ -6,7 +6,9 @@ import java.util.Arrays;
  * https://www.geeksforgeeks.org/divide-array-in-two-subsets-such-that-sum-of-square-of-sum-of-both-subsets-is-maximum/
  *
  * Divide array in two Subsets such that sum of square of sum of both subsets is maximum
- * Given an integer array arr[], the task is to divide this array into two non-empty subsets such that the sum of the square of the sum of both the subsets is maximum and sizes of both the subsets must not differ by more than 1.
+ * Given an integer array arr[], the task is to divide this array into two non-empty subsets such
+ * that the sum of the square of the sum of both the subsets is maximum and sizes of both the subsets
+ * must not differ by more than 1.
  *
  * Examples:
  *

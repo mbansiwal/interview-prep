@@ -59,7 +59,9 @@ class BinaryTreeTraversal
 	void printPreorder(Node node)
 	{
 		if (node == null)
+		{
 			return;
+		}
 
 		/* first print data of node */
 		System.out.print(node.data + " ");

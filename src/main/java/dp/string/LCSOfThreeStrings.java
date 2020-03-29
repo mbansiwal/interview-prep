@@ -27,7 +27,8 @@ public class LCSOfThreeStrings {
 					}
 					else
 					{
-						ls[i][j][k] = Math.max(ls[i-1][j][k], Math.max(ls[i][j-1][k], ls[i][j][k-1]));
+						ls[i][j][k] =
+								Math.max(ls[i-1][j][k], Math.max(ls[i][j-1][k], ls[i][j][k-1]));
 					}
 				}
 			}

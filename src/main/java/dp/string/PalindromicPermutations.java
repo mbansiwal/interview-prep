@@ -110,5 +110,6 @@ public class PalindromicPermutations {
     public static void main(String[] args){
         String input = "aabcb";
         System.out.println(new PalindromicPermutations().findAllPermutations(input));
+        //[abcba, bacab]
     }
 }

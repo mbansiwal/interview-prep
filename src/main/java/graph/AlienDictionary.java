@@ -10,87 +10,81 @@ import java.util.*;
  * https://leetcode.com/problems/alien-dictionary/
  */
 public class AlienDictionary {
-    public String alienOrder(String[] words){
-        StringBuilder result = new StringBuilder("");
-        Map<Character, Integer> degrees = new HashMap<>();
-        Map<Character, Set<Character>> graph = buildGraph(words, degrees);
-
-        Queue<Character> queue = new LinkedList<>();
-        for (Map.Entry<Character, Integer> entry: degrees.entrySet()) {
-            if(entry.getValue() == 0){
-                queue.offer(entry.getKey());
+    Map<Integer, Boolean> vistedMap;
+    class Graph{
+        List<Integer>[] edges;
+        public Graph(int vertices){
+            edges = new LinkedList[vertices];
+            for (int i =0; i < vertices; ++i){
+                edges[i] = new LinkedList();
             }
         }
 
-        while(!queue.isEmpty()){
-            Character ch = queue.poll();
-            result.append(ch);
-            for (Character child: graph.getOrDefault(ch, new HashSet<>())) {
-                degrees.put(child, degrees.get(child)-1);
-                if(degrees.get(child) == 0){
-                    queue.offer(child);
-                }
-            }
-            graph.remove(ch);
+        private void addEdge(int u, int v){
+            edges[u].add(v);
         }
-        return result.toString();
+
+        private List<Integer> getEdges(int vertex){
+            return edges[vertex];
+        }
     }
 
-    private Map<Character, Set<Character>> buildGraph(String[] strings, Map<Character, Integer> degrees){
-        Set<Character> allCharacters = buildCharacters(strings, degrees);
-        Map<Character, Set<Character>> graph = new HashMap<>();
-        for(int i =0; i < strings.length -1; ++i){
-            String str1 = strings[i];
-            String str2 = strings[i+1];
-            for(int k =0; k < Math.min(str1.length(), str2.length()); ++k){
-                Character ch1 = str1.charAt(k);
-                Character ch2 = str2.charAt(k);
-                if(ch1 != ch2){
-                    allCharacters.remove(ch1);
+    private void topologicalSort(Graph graph, Stack<Integer> stack){
+        vistedMap = new HashMap<>();
+        for (int i=0; i < graph.edges.length; ++i){
+            if(!vistedMap.getOrDefault(i, false)){
+                topologicalSortUtil(i, graph, stack);
+            }
+        }
+    }
 
-                    graph.putIfAbsent(ch1, new HashSet<>());
-                    graph.get(ch1).add(ch2);
-                    degrees.put(ch2, degrees.getOrDefault(ch2, 0)+1);
+    private void topologicalSortUtil(int vertex, Graph graph, Stack<Integer> stack){
+        vistedMap.put(vertex, true);
+        for (Integer edge:graph.getEdges(vertex)) {
+            if(!vistedMap.getOrDefault(edge, false)){
+                topologicalSortUtil(edge, graph, stack);
+            }
+        }
+        stack.push(vertex);
+    }
+
+    private int computeVertices(String[] words){
+        Set<Character> set = new HashSet<>();
+        for (String word: words) {
+            for (Character ch: word.toCharArray()) {
+                set.add(ch);
+            }
+        }
+        return set.size();
+    }
+
+    public void alienOrder(String[] words){
+        int vertices = computeVertices(words);
+        Graph graph = new Graph(vertices);
+        for (int i=0; i < words.length-1; ++i){
+            String str1 = words[i];
+            String str2 = words[i+1];
+            int minLength = Math.min(str1.length(), str2.length());
+            for (int j=0; j < minLength; ++j){
+                if(str1.charAt(j) != str2.charAt(j)){
+                    graph.addEdge(str1.charAt(j) - 'a', str2.charAt(j) - 'a');
                     break;
                 }
             }
         }
-
-        for (Character character: allCharacters) {
-            graph.remove(character);
+        Stack<Integer> stack = new Stack<>();
+        topologicalSort(graph, stack);
+        while(!stack.isEmpty()) {
+            System.out.print((char)('a' + stack.pop())+" ");
         }
-        return graph;
-    }
-
-    private Set<Character> buildCharacters(String[] strings, Map<Character, Integer> degree){
-        Set<Character> allCharacters = new HashSet<>();
-        for (String str: strings) {
-            for (Character ch: str.toCharArray()) {
-                allCharacters.add(ch);
-                degree.computeIfAbsent(ch, key -> 0);
-            }
-        }
-        return allCharacters;
+        System.out.println();
     }
 
     public static void main(String args[]) {
         AlienDictionary ad =  new AlienDictionary();
-        String[] words1 = {"zy","zx"};
-        String[] words = {"wrt", "wrf", "er", "ett", "rftt"};
-        String[] words2 = {"wrtkj","wrt"};
-        System.out.println(ad.alienOrder(words));
-        System.out.println(ad.alienOrder(words1));
-        System.out.println(ad.alienOrder(words2));
-
-        /**
-         wertf
-         yzx
-         rtwjk
-         */
-        //w -> e
-        // e -> r
-        //t -> f
-        //r -> t
-        //
+        String[] words = {"caa", "aaa", "aab"};
+        ad.alienOrder(words);
+        String[] words2 = {"baa", "abcd", "abca", "cab", "cad"};
+        ad.alienOrder(words2);
     }
 }

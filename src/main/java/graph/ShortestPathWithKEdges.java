@@ -39,11 +39,11 @@ public class ShortestPathWithKEdges
 		{
 			if (graph[u][i] != INF && u != i && v != i)
 			{
-				int rec_res = shortestPath(graph, i, v, k - 1);
-				shortestPath[i][v][k] = rec_res;
-				if (rec_res != INF)
+				int iToVDistance = shortestPath(graph, i, v, k - 1);
+				shortestPath[i][v][k] = iToVDistance;
+				if (iToVDistance != INF)
 				{
-					res = Math.min(res, graph[u][i] + rec_res);
+					res = Math.min(res, graph[u][i] + iToVDistance);
 				}
 			}
 		}
