@@ -73,9 +73,9 @@ public class AlienCharDictionary {
             String str1 = words[i];
             String str2 = words[i+1];
 
-            int minLegth = Math.min(str1.length(), str2.length());
+            int minLength = Math.min(str1.length(), str2.length());
 
-            for (int j = 0; j < minLegth; ++j){
+            for (int j = 0; j < minLength; ++j){
                 Character ch1 = str1.charAt(j);
                 Character ch2 = str2.charAt(j);
                 if(ch1 != ch2){

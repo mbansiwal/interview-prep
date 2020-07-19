@@ -16,11 +16,9 @@ package math;
  */
 public class SpaceAndTimeEfficientBinomialCoefficient {
     public static int calculate(int n, int k){
-        if(k > (n - k)){
-            k = n - k;
-        }
-        int value = 1;
+        k = Math.min(k, n-k);
 
+        int value = 1;
         for(int i = 0; i < k; ++i){
             value *= (n-i);
             value /= (i+1);

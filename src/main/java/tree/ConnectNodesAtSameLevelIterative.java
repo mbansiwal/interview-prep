@@ -70,9 +70,11 @@ public class ConnectNodesAtSameLevelIterative {
 
             if(node.left!=null){
                 node = node.left;
-            } else if(node.right!=null){
+            }
+            else if(node.right!=null){
                 node = node.right;
-            } else{
+            }
+            else {
                 node = getNextRight(node);
             }
         }

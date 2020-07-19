@@ -11,6 +11,7 @@ public class CountInversionsInAnArray {
 
         int[] smaller = new int[n];
         int[] greater = new int[n];
+
         int[] tree = new int[n+1];
         for (int i=n-1; i>=0; --i){
             smaller[i] += getSum(tree, arr[i] - 1);

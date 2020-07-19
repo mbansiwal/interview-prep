@@ -82,6 +82,8 @@ public class AlienDictionary {
 
     public static void main(String args[]) {
         AlienDictionary ad =  new AlienDictionary();
+        String[] words1 = {"ca", "ab"};
+        ad.alienOrder(words1);
         String[] words = {"caa", "aaa", "aab"};
         ad.alienOrder(words);
         String[] words2 = {"baa", "abcd", "abca", "cab", "cad"};

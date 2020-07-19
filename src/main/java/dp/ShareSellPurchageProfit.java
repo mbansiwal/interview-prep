@@ -10,22 +10,14 @@ public class ShareSellPurchageProfit
 		int maxPrice = prices[n-1];
 		for (int i = n-2; i >=0; --i) 
 		{
-			if(maxPrice < prices[i])
-			{
-				maxPrice = prices[i];
-			}
-			
+			maxPrice = Math.max(prices[i], maxPrice);
 			profit[i] = Math.max(profit[i+1], maxPrice - prices[i]);
 		}
 		
 		int minPrice = prices[0];
 		for (int i = 1; i <n; ++i) 
 		{
-			if(minPrice > prices[i])
-			{
-				minPrice = prices[i];
-			}
-			
+			minPrice = Math.min(prices[i], minPrice);
 			profit[i] = Math.max(profit[i-1], prices[i]-minPrice+profit[i]);
 		}
 		

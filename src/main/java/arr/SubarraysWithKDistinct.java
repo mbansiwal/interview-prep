@@ -18,9 +18,13 @@ public class SubarraysWithKDistinct
 			window2.add(x);
 
 			while (window1.different() > K)
+			{
 				window1.remove(A[left1++]);
+			}
 			while (window2.different() >= K)
+			{
 				window2.remove(A[left2++]);
+			}
 
 			ans += left2 - left1;
 		}
@@ -52,14 +56,18 @@ class Window
 	{
 		count.put(x, count.getOrDefault(x, 0) + 1);
 		if (count.get(x) == 1)
+		{
 			nonzero++;
+		}
 	}
 
 	void remove(int x)
 	{
 		count.put(x, count.get(x) - 1);
 		if (count.get(x) == 0)
+		{
 			nonzero--;
+		}
 	}
 
 	int different()

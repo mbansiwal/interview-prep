@@ -3,7 +3,9 @@ package math;
 /**
  * https://www.geeksforgeeks.org/count-of-distinct-graphs-that-can-be-formed-with-n-vertices/
  *
- * Given an integer N which is the number of vertices. The task is to find the number of distinct graphs that can be formed. Since the answer can be very large, print the answer % 1000000007.
+ * Given an integer N which is the number of vertices.
+ * The task is to find the number of distinct graphs that can be formed.
+ * Since the answer can be very large, print the answer % 1000000007.
  *
  * Examples:
  *

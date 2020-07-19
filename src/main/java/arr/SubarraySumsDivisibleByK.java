@@ -50,5 +50,6 @@ public class SubarraySumsDivisibleByK
 				4, 5, 0, -2, -3, 1
 		};
 		System.out.println(new SubarraySumsDivisibleByK().subarraysDivByK(arr, 5));
+		System.out.println(new SubarraySumsDivisibleByK().subarraysDivByK2(arr, 5));
 	}
 }

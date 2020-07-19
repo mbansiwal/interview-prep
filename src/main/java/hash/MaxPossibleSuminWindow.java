@@ -36,7 +36,7 @@ public class MaxPossibleSuminWindow
 		// calculating the maximum possible
 		// sum for each subarray containing
 		// unique elements.
-		int curr_sum = 0, curr_begin = 0;
+		int currSum = 0, currBegin = 0;
 		for (int i = 0; i < n; ++i)
 		{
 			// Remove all duplicate
@@ -44,19 +44,19 @@ public class MaxPossibleSuminWindow
 			// current window.
 			while (mp.contains(A[i]))
 			{
-				mp.remove(A[curr_begin]);
-				curr_sum -= B[curr_begin];
-				curr_begin++;
+				mp.remove(A[currBegin]);
+				currSum -= B[currBegin];
+				currBegin++;
 			}
 
 			// Add current instance of A[i]
 			// to map and to current sum.
 			mp.add(A[i]);
-			curr_sum += B[i];
+			currSum += B[i];
 
 			// Update result if current
 			// sum is more.
-			result = Integer.max(result, curr_sum);
+			result = Integer.max(result, currSum);
 
 		}
 		return result;

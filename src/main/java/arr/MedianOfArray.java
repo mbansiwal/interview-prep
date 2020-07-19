@@ -50,7 +50,7 @@ public class MedianOfArray
 			//median lies between arr2 0,media2 and arr1 media1,n
 			if(n%2 == 0)
 			{
-				return findMedianOfSortedArrays(arr2, start2, start2 + (n/2)+1, arr1, start1 + (n/2)-1, start1 + n-1);
+				return findMedianOfSortedArrays(arr2, start2, start2 + (n/2)-1, arr1, start1 + (n/2), start1 + n-1);
 			}
 			else
 			{
@@ -62,7 +62,7 @@ public class MedianOfArray
 			//median lies between arr1 0,median1 and arr2 median2,n
 			if(n%2 == 0)
 			{
-				return findMedianOfSortedArrays(arr1, start1, start1 + (n/2)+1, arr2, start2 + (n/2)-1, start2 + n-1);
+				return findMedianOfSortedArrays(arr1, start1, start1 + (n/2)-1, arr2, start2 + (n/2), start2 + n-1);
 			}
 			else
 			{
@@ -83,5 +83,9 @@ public class MedianOfArray
 	    int arr4[] = {2, 13, 17, 30, 45};
 	    
 	    System.out.println(medianOfArray.findMedianOfSortedArrays(arr3, arr4));
+
+		int[] x = {1, 3,  8,  9,  15, 16};
+		int[] y = {7, 11, 19, 21, 18, 25};
+		System.out.println(medianOfArray.findMedianOfSortedArrays(x, y));
 	}
 }

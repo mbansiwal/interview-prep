@@ -40,7 +40,7 @@ import java.util.LinkedList;
 
 //This class represents an undirected graph using adjacency list
 //representation
-class Graph
+class ArticulationPointGraph
 {
 	private int V; // No. of vertices
 
@@ -50,7 +50,7 @@ class Graph
 	static final int NIL = -1;
 
 	// Constructor
-	Graph(int v)
+	ArticulationPointGraph(int v)
 	{
 		V = v;
 		adj = new LinkedList[v];
@@ -170,7 +170,7 @@ public class ArticulationPoint
 	{
 		// Create graphs given in above diagrams
 		System.out.println("Articulation points in first graph ");
-		Graph g1 = new Graph(5);
+		ArticulationPointGraph g1 = new ArticulationPointGraph(5);
 		g1.addEdge(1, 0);
 		g1.addEdge(0, 2);
 		g1.addEdge(2, 1);
@@ -180,7 +180,7 @@ public class ArticulationPoint
 		System.out.println();
 
 		System.out.println("Articulation points in Second graph");
-		Graph g2 = new Graph(4);
+		ArticulationPointGraph g2 = new ArticulationPointGraph(4);
 		g2.addEdge(0, 1);
 		g2.addEdge(1, 2);
 		g2.addEdge(2, 3);
@@ -188,7 +188,7 @@ public class ArticulationPoint
 		System.out.println();
 
 		System.out.println("Articulation points in Third graph ");
-		Graph g3 = new Graph(7);
+		ArticulationPointGraph g3 = new ArticulationPointGraph(7);
 		g3.addEdge(0, 1);
 		g3.addEdge(1, 2);
 		g3.addEdge(2, 0);

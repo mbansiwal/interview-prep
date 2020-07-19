@@ -48,15 +48,7 @@ public class SolveSudoku
 		{
 			int newRow = 3 * (row / 3) + i / 3;
 			int newCol = 3 * (col / 3) + i % 3;
-			if (board[row][i] == c)
-			{
-				return false;
-			}
-			if (board[i][col] == c)
-			{
-				return false;
-			}
-			if (board[newRow][newCol] == c)
+			if (board[row][i] == c || board[i][col] == c || board[newRow][newCol] == c)
 			{
 				return false;
 			}

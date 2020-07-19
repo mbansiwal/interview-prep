@@ -47,11 +47,15 @@ public class Triplet
                     j++; // increment the second value index
                     k--; // decrement the third value index
  
-                } else if (nums[i] + nums[j] + nums[k] < sum)
+                }
+                else if (nums[i] + nums[j] + nums[k] < sum)
+                {
                     j++;
- 
+                }
                 else // nums[i] + nums[j] + nums[k] > sum
+                {
                     k--;
+                }
             }
         }
         return pair;

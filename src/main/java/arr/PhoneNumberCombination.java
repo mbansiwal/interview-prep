@@ -50,6 +50,6 @@ public class PhoneNumberCombination
 
 	public static void main(String[] args)
 	{
-		System.out.println(new PhoneNumberCombination().letterCombinations("23"));
+		System.out.println(new PhoneNumberCombination().letterCombinations("234"));
 	}
 }

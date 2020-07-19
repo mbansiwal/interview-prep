@@ -48,9 +48,9 @@ public class SmallestSubarrayWithSumGreaterThanGivenValue
 				// If sum becomes more than x and length of
 				// this subarray is smaller than current smallest
 				// length, update the smallest length (or result)
-				if (curr_sum > x && (end - start + 1) < min_len)
+				if (curr_sum > x)
 				{
-					min_len = (end - start + 1);
+					min_len = Math.min(min_len, end - start + 1);
 				}
 			}
 		}

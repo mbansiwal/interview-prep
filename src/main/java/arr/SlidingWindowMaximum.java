@@ -20,7 +20,7 @@ public class SlidingWindowMaximum
 		for (int i = k; i < n; i++)
 		{
 			System.out.print(arr[queue.peek()] + ",");
-			while (!queue.isEmpty() && (queue.peek() <= (i - k)))
+			while (!queue.isEmpty() && (queue.peekFirst() <= (i - k)))
 			{
 				queue.removeFirst();
 			}

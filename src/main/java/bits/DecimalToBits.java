@@ -2,6 +2,42 @@ package bits;
 
 public class DecimalToBits
 {
+	static String decimalToBinaryRepresentation(double num, int precision)
+	{
+		int intPart = (int)num;
+		double fractionalPart = num - intPart;
+		StringBuilder sb = new StringBuilder();
+		sb.append(convertToBinary(intPart));
+		sb.append(".");
+
+		while(precision-- > 0){
+			fractionalPart *= 2;
+			int tempIntPart = (int)fractionalPart;
+			if(tempIntPart == 1){
+				fractionalPart -= tempIntPart;
+				sb.append("1");
+			} else{
+				sb.append("0");
+			}
+		}
+
+		return sb.toString();
+	}
+
+	static String convertToBinary(int n){
+		StringBuilder sb = new StringBuilder();
+		convertToBinary(n, sb);
+		return sb.toString();
+	}
+
+	static void convertToBinary(int n, StringBuilder sb){
+		if(n > 1){
+			convertToBinary(n >> 1, sb);
+		}
+		sb.append(n & 1);
+	}
+
+
 	static String decimalToBinary2(double num, int k_prec)
 	{
 		int integerPart = (int) num;
@@ -77,5 +113,8 @@ public class DecimalToBits
 
 		System.out.println(decimalToBinary2(4.47, 3));
 		System.out.println(decimalToBinary2(6.986, 5));
+
+		System.out.println(decimalToBinaryRepresentation(4.47, 3));
+		System.out.println(decimalToBinaryRepresentation(6.986, 5));
 	}
 }

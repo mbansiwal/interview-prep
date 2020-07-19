@@ -17,7 +17,8 @@ package dp;
  * Finding Sum (X - 3) from (n - 1) dice plus 3 from nth dice
  * ...................................................
  * ...................................................
- * ................................................... + Finding Sum (X - m)
+ * ................................................... +
+ * Finding Sum (X - m)
  * from (n - 1) dice plus m from nth dice
  * 
  * So we can recursively write Sum(m, n, x) as following Sum(m, n, X) = Sum(m, n

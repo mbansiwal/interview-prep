@@ -12,7 +12,7 @@ public class DivideArrayIntoTwo
 		}
 		int n = arr.length;
 		int lsum = 0;
-		int rsum =0;
+		int rsum = 0;
 		for (int i = 0; i < n-1; i++) 
 		{
 			lsum+=arr[i];

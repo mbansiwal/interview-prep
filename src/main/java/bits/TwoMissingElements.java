@@ -1,5 +1,11 @@
 package bits;
 
+import java.util.Arrays;
+
+/**
+ * https://www.geeksforgeeks.org/find-two-missing-numbers-set-1-an-interesting-linear-time-solution/
+ * https://www.geeksforgeeks.org/find-two-missing-numbers-set-2-xor-based-solution/
+ */
 public class
 TwoMissingElements
 {
@@ -47,6 +53,28 @@ TwoMissingElements
 		System.out.println("Two elements are x = " + x + ", y = " + y);
 	}
 
+	public void findTwoMissingElements1(int[] arr)
+	{
+		int n = arr.length+2;
+		int totalSum = n*(n+1)/2;
+
+		int arrSum = Arrays.stream(arr).sum();
+		int sumOfMissingElements = totalSum - arrSum;
+
+		int avg = sumOfMissingElements/2;
+
+		int sumOfAvgNumbers = avg*(avg+1)/2;
+
+		int avgSum = 0;
+		for(int i=0; arr[i] <= avg; ++i){
+			avgSum += arr[i];
+		}
+		int firstMissingNumber = sumOfAvgNumbers - avgSum;
+		int secondMissingNumber = sumOfMissingElements - firstMissingNumber;
+		System.out.println("Two elements are firstMissingNumber = " + firstMissingNumber + ", secondMissingNumber = " + secondMissingNumber);
+	}
+
+
 	public static void main(String[] args)
 	{
 		int arr[] =
@@ -54,11 +82,14 @@ TwoMissingElements
 				1, 3, 5, 6
 		};
 		new TwoMissingElements().findTwoMissingElements(arr);
+		new TwoMissingElements().findTwoMissingElements1(arr);
+
 
 		int arr2[] =
 		{
 				1, 3, 4, 5, 6, 7, 9
 		};
 		new TwoMissingElements().findTwoMissingElements(arr2);
+		new TwoMissingElements().findTwoMissingElements1(arr2);
 	}
 }
