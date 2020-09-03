@@ -18,7 +18,7 @@ public class FindMIssingNumberInGeometricProgression {
 			return (arr[mid] * ratio);
 		}
 
-		// If elem]-o'pl/';ent previous to mid is missing
+		// If element previous to mid is missing
 		if ((mid > 0) && (arr[mid] / arr[mid - 1]) != ratio)
 		{
 			return (arr[mid - 1] * ratio);

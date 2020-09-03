@@ -322,3 +322,5 @@ target/surefire-reports/Test.txt
 target/test-classes/PrettyPrintJson.class
 target/test-classes/Test$ListNode.class
 target/test-classes/Test.class
+/.classpath
+/.project
