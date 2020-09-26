@@ -82,7 +82,9 @@ public class SmallestStringStartingFromLeaf
 	public void dfs(TreeNode node, StringBuilder sb)
 	{
 		if (node == null)
+		{
 			return;
+		}
 		sb.append((char) ('a' + node.val));
 
 		if (node.left == null && node.right == null)
@@ -92,7 +94,9 @@ public class SmallestStringStartingFromLeaf
 			sb.reverse();
 
 			if (s.compareTo(ans) < 0)
+			{
 				ans = s;
+			}
 		}
 
 		dfs(node.left, sb);

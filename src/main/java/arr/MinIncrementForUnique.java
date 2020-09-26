@@ -46,7 +46,9 @@ public class MinIncrementForUnique {
 //        int arr2[] = {1,3,0,3,0};
 //        System.out.println(new MinIncrementForUnique().minIncrementForUnique(arr2));
 
-        int arr3[] = {0,2,2};
+//        int arr3[] = {0,2,2};
+//        System.out.println(new MinIncrementForUnique().minIncrementForUnique(arr3));
+    	int arr3[] = {3,3,3};
         System.out.println(new MinIncrementForUnique().minIncrementForUnique(arr3));
 
     }

@@ -65,7 +65,7 @@ public class QuickSort
 		int n = arr.length;
 
 		QuickSort ob = new QuickSort();
-		System.out.println(ob.ktSmallestElement(arr, 0, n - 1, 6));
+		System.out.println(ob.ktSmallestElement(arr, 0, n - 1, 2));
 		// ob.sort(arr, 0, n - 1);
 
 		System.out.println("sorted array");

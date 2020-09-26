@@ -11,7 +11,8 @@ public class LongestSubstringWithoutRepeatingCharacters
 		char[] str = s.toCharArray();
 
 		int maxLength = 0;
-		for (int i = 0, currentIndex = 0; i < str.length; i++)
+		int currentIndex = 0;
+		for (int i = 0; i < str.length; i++)
 		{
 			if (dataMap.containsKey(str[i]))
 			{
@@ -25,6 +26,7 @@ public class LongestSubstringWithoutRepeatingCharacters
 
 	public static void main(String[] args)
 	{
-
+		LongestSubstringWithoutRepeatingCharacters lsw = new LongestSubstringWithoutRepeatingCharacters();
+		System.out.println(lsw.lengthOfLongestSubstring("ABCDECAMNCZB"));
 	}
 }

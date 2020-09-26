@@ -6,6 +6,7 @@ public class PowerOf4
 	{
 		int n = number & (number - 1);
 		int evenBits = (number & 0XAAAAAAAA);
+		//100
 		return number != 0 && n == 0 && (evenBits == 0);
 	}
 

@@ -44,14 +44,13 @@ public class ConnectNodesAtSameLevelIterative {
     }
 
     private void connect(Node node) {
-        Node temp = null;
         if(node == null){
             return;
         }
         node.nextRight = null;
 
         while(node != null){
-            temp = node;
+        	Node temp = node;
 
             while(temp != null){
                 if(temp.left!=null){

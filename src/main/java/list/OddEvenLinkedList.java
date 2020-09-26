@@ -1,18 +1,20 @@
-package dp.lis;
+package list;
 
-class ListNode
-{
-	int val;
-	ListNode next;
 
-	ListNode(int x)
-	{
-		val = x;
-	}
-}
 
 public class OddEvenLinkedList
 {
+	private static class ListNode
+	{
+		int val;
+		ListNode next;
+
+		ListNode(int x)
+		{
+			val = x;
+		}
+	}
+	
 	public ListNode oddEvenList2(ListNode head)
 	{
 		if (head == null)

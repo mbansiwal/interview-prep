@@ -30,10 +30,10 @@ public class CountInversionsInAnArray {
         return inversions;
     }
 
-    private int getSum(int arr[], int index){
+    private int getSum(int tree[], int index){
         int sum = 0;
         while(index > 0){
-            sum += arr[index];
+            sum += tree[index];
             index -= index & (-index);
         }
         return sum;

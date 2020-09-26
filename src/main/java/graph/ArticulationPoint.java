@@ -40,8 +40,7 @@ import java.util.LinkedList;
 
 //This class represents an undirected graph using adjacency list
 //representation
-class ArticulationPointGraph
-{
+class ArticulationPointGraph {
 	private int V; // No. of vertices
 
 	// Array of lists for Adjacency List Representation
@@ -50,8 +49,7 @@ class ArticulationPointGraph
 	static final int NIL = -1;
 
 	// Constructor
-	ArticulationPointGraph(int v)
-	{
+	ArticulationPointGraph(int v) {
 		V = v;
 		adj = new LinkedList[v];
 		for (int i = 0; i < v; ++i)
@@ -59,8 +57,7 @@ class ArticulationPointGraph
 	}
 
 	// Function to add an edge into the graph
-	void addEdge(int v, int w)
-	{
+	void addEdge(int v, int w) {
 		adj[v].add(w); // Add w to v's list.
 		adj[w].add(v); // Add v to w's list
 	}
@@ -71,8 +68,7 @@ class ArticulationPointGraph
 	// disc[] --> Stores discovery times of visited vertices
 	// parent[] --> Stores parent vertices in DFS tree
 	// ap[] --> Store articulation points
-	void APUtil(int u, boolean visited[], int disc[], int low[], int parent[], boolean ap[])
-	{
+	void APUtil(int u, boolean visited[], int disc[], int low[], int parent[], boolean ap[]) {
 
 		// Count of children in DFS Tree
 		int children = 0;
@@ -85,14 +81,12 @@ class ArticulationPointGraph
 
 		// Go through all vertices aadjacent to this
 		Iterator<Integer> i = adj[u].iterator();
-		while (i.hasNext())
-		{
+		while (i.hasNext()) {
 			int v = i.next(); // v is current adjacent of u
 
 			// If v is not visited yet, then make it a child of u
 			// in DFS tree and recur for it
-			if (!visited[v])
-			{
+			if (!visited[v]) {
 				children++;
 				parent[v] = u;
 				APUtil(v, visited, disc, low, parent, ap);
@@ -104,30 +98,26 @@ class ArticulationPointGraph
 				// u is an articulation point in following cases
 
 				// (1) u is root of DFS tree and has two or more chilren.
-				if (parent[u] == NIL && children > 1)
-				{
+				if (parent[u] == NIL && children > 1) {
 					ap[u] = true;
 				}
 
 				// (2) If u is not root and low value of one of its child
 				// is more than discovery value of u.
-				if (parent[u] != NIL && low[v] >= disc[u])
-				{
+				if (parent[u] != NIL && low[v] >= disc[u]) {
 					ap[u] = true;
 				}
 			}
 
 			// Update low value of u for parent function calls.
-			else if (v != parent[u])
-			{
+			else if (v != parent[u]) {
 				low[u] = Math.min(low[u], disc[v]);
 			}
 		}
 	}
 
 	// The function to do DFS traversal. It uses recursive function APUtil()
-	void AP()
-	{
+	void AP() {
 		// Mark all the vertices as not visited
 		boolean visited[] = new boolean[V];
 		int disc[] = new int[V];
@@ -137,8 +127,7 @@ class ArticulationPointGraph
 
 		// Initialize parent and visited, and ap(articulation point)
 		// arrays
-		for (int i = 0; i < V; i++)
-		{
+		for (int i = 0; i < V; i++) {
 			parent[i] = NIL;
 			visited[i] = false;
 			ap[i] = false;
@@ -154,8 +143,7 @@ class ArticulationPointGraph
 
 		// Now ap[] contains articulation points, print them
 		for (int i = 0; i < V; i++) {
-			if (ap[i])
-			{
+			if (ap[i]) {
 				System.out.print(i + " ");
 			}
 		}
@@ -163,11 +151,9 @@ class ArticulationPointGraph
 
 }
 
-public class ArticulationPoint
-{
+public class ArticulationPoint {
 	// Driver method
-	public static void main(String args[])
-	{
+	public static void main(String args[]) {
 		// Create graphs given in above diagrams
 		System.out.println("Articulation points in first graph ");
 		ArticulationPointGraph g1 = new ArticulationPointGraph(5);

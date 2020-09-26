@@ -6,7 +6,7 @@ public class FindMissingNumber
 {
 	public int solution(int[] A)
 	{
-		PriorityQueue<Integer> queue = new PriorityQueue<>();
+		PriorityQueue<Integer> queue = new PriorityQueue<>((num1, num2) -> num2-num1);
 		for (int i = 0; i < A.length; ++i)
 		{
 			if(A[i] > 0)

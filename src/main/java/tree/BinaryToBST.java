@@ -55,6 +55,7 @@ public class BinaryToBST
 		System.out.print(node.data + ",");
 		printInorder(node.right);
 	}
+	
 	public static void main(String args[])
 	{
 		BinaryToBST tree1 = new BinaryToBST();

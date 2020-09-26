@@ -1,7 +1,6 @@
 package dp.lis;
 
 import java.util.Arrays;
-import java.util.Comparator;
 
 class Pair implements Comparable<Pair>
 {

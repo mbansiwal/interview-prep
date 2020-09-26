@@ -37,6 +37,33 @@ public class BinaryTreeDepth {
 	        }
 	    }
 	    
+	    int minHeight = Integer.MAX_VALUE;
+	    private void minDepth(Node root, int depth) {
+	        if(root == null){
+	            return;
+	        }
+	        if(root.left == null && root.right == null){
+	            minHeight = Math.min(depth, minHeight);
+	        }
+	        minDepth(root.left, depth+1);
+	        minDepth(root.right, depth+1);        
+	    }
+	    
+	    private int minDepth2(Node root){
+	        if(root == null){
+	            return 0;
+	        }
+	        
+	        int leftHeight = minDepth2(root.left);
+	        int rightHeight = minDepth2(root.right);
+	        if(root.left == null){
+	            return 1 + rightHeight;
+	        } else if(root.right == null){
+	            return 1 + leftHeight;
+	        }
+	        return 1 + Math.min(leftHeight, rightHeight);
+	    }
+	    
 	    public int minimumWidthRecursion(Node node)
 		{
 			return minimumWidthRecursionUtl(node,1);

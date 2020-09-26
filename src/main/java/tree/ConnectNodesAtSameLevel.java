@@ -19,9 +19,6 @@ package tree;
  */
 
 public class ConnectNodesAtSameLevel {
-
-    private Node node;
-
     static class Node
     {
         int data;
@@ -34,51 +31,83 @@ public class ConnectNodesAtSameLevel {
         }
     }
 
-        Node root;
-
-        // Sets the nextRight of root and calls connectRecur()
-        // for other nodes
-        void connect(Node p)
+    Node root; 
+    
+    /* Set next right of all descendents of p. This function makes sure that 
+       nextRight of nodes ar level i is set before level i+1 nodes. */
+    void connectRecur(Node p)  
+    { 
+        // Base case 
+        if (p == null) 
         {
-
-            // Set the nextRight for root
-            p.nextRight = null;
-
-            // Set the next right for rest of the nodes (other
-            // than root)
-            connectRecur(p);
+        	return; 
         }
-
-        /* Set next right of all descendents of p.
-           Assumption:  p is a compete binary tree */
-        void connectRecur(Node node)
+   
+        /* Before setting nextRight of left and right children, set nextRight 
+           of children of other nodes at same level (because we can access  
+           children of other nodes using p's nextRight only) */
+        if (p.nextRight != null) 
         {
-            // Base case
-            this.node = node;
-            if (this.node == null)
-            {
-                return;
-            }
-
-            // Set the nextRight pointer for p's left child
-            if (node.left != null)
-            {
-                node.left.nextRight = node.right;
-            }
-
-            // Set the nextRight pointer for p's right child
-            // p->nextRight will be NULL if pp076 is the right most child
-            // at its level
-            if (node.right != null)
-            {
-                node.right.nextRight = (node.nextRight != null) ?
-                        node.nextRight.left : null;
-            }
-
-            // Set nextRight for other nodes in pre order fashion
-            connectRecur(node.left);
-            connectRecur(node.right);
+        	connectRecur(p.nextRight); 
         }
+   
+        /* Set the nextRight pointer for p's left child */
+        if (p.left != null) 
+        { 
+            if (p.right != null)  
+            { 
+                p.left.nextRight = p.right; 
+                p.right.nextRight = getNextRight(p); 
+            }  
+            else
+            {
+            	p.left.nextRight = getNextRight(p); 
+            }
+   
+            /* Recursively call for next level nodes.  Note that we call only 
+             for left child. The call for left child will call for right child */
+            connectRecur(p.left); 
+        } 
+           
+        /* If left child is NULL then first node of next level will either be 
+         p->right or getNextRight(p) */
+        else if (p.right != null)  
+        { 
+            p.right.nextRight = getNextRight(p); 
+            connectRecur(p.right); 
+        }  
+        else
+        {
+        	connectRecur(getNextRight(p)); 
+        }
+    } 
+   
+    /* This function returns the leftmost child of nodes at the same 
+       level as p. This function is used to getNExt right of p's right child 
+       If right child of p is NULL then this can also be used for  
+       the left child */
+    Node getNextRight(Node p)  
+    { 
+        Node temp = p.nextRight; 
+   
+        /* Traverse nodes at p's level and find and return 
+         the first node's first child */
+        while (temp != null)  
+        { 
+            if (temp.left != null) 
+            {
+            	return temp.left; 
+            }
+            if (temp.right != null) 
+            {
+            	return temp.right; 
+            }
+            temp = temp.nextRight; 
+        } 
+   
+        // If all the nodes at p's level are leaf nodes then return NULL 
+        return null; 
+    } 
 
         // Driver program to test above functions
         public static void main(String args[])
@@ -98,7 +127,7 @@ public class ConnectNodesAtSameLevel {
             tree.root.left.left = new Node(3);
 
             // Populates nextRight pointer in all nodes
-            tree.connect(tree.root);
+            tree.connectRecur(tree.root);
 
             // Let us check the values of nextRight pointers
             System.out.println("Following are populated nextRight pointers in "

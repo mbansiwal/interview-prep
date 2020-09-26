@@ -63,7 +63,7 @@ public class MedianOfTwoSortedArray
 	{
 		MedianOfTwoSortedArray medianOfArray = new MedianOfTwoSortedArray();
 		int arr1[] = {1, 2, 3, 6};
-	    int arr2[] = {4, 6, 8, 10};
+	    int arr2[] = {4, 7, 8};
 	    
 		System.out.println(medianOfArray.findMedianOfSortedArrays(arr1, arr2));
 	    

@@ -1,6 +1,13 @@
 package graph;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Deque;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * Date 08/16/2015
@@ -31,7 +38,7 @@ public class TarjanStronglyConnectedComponent {
         result = new ArrayList<>();
         time = 0;
 
-        for (Vertex vertex: graph.getAllVertex()) {
+        for (Vertex<Integer> vertex: graph.getAllVertex()) {
             if(!visited.contains(vertex)){
                 sccUtil(vertex);
             }
@@ -47,7 +54,7 @@ public class TarjanStronglyConnectedComponent {
         visitedTime.put(vertex, time);
         lowTime.put(vertex, time);
         time++;
-        for (Vertex child: vertex.getAdjacentVertexes()) {
+        for (Vertex<Integer> child: vertex.getAdjacentVertexes()) {
             if(!visited.contains(child)){
                 sccUtil(child);
                 lowTime.put(vertex, Math.min(lowTime.get(vertex), lowTime.get(child)));
@@ -58,7 +65,7 @@ public class TarjanStronglyConnectedComponent {
 
         if(lowTime.get(vertex) == visitedTime.get(vertex)){
             Set<Vertex<Integer>> stronglyConnectedComponents = new HashSet<>();
-            Vertex v;
+            Vertex<Integer> v;
             do{
                 v = stack.pollFirst();
                 onStack.remove(v);

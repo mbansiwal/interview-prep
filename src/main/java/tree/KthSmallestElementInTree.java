@@ -5,13 +5,13 @@ class Count
 	int c = 0;
 }
 
-public class kthSmallestElementInTree
+public class KthSmallestElementInTree
 {
 	Node root;
 
 	public static void main(String[] args)
 	{
-		kthSmallestElementInTree tree = new kthSmallestElementInTree();
+		KthSmallestElementInTree tree = new KthSmallestElementInTree();
 
 		/*
 		 * Let us create following BST 50 / \ 30 70 / \ / \ 20 40 60 80

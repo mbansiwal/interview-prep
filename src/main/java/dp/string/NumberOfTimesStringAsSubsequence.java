@@ -1,5 +1,24 @@
 package dp.string;
 
+/**
+ * https://www.geeksforgeeks.org/find-number-times-string-occurs-given-string/
+ * 
+ * Input:  
+	string a = "GeeksforGeeks"
+	string b = "Gks"
+	
+	Output: 4
+	
+	Explanation:  
+	The four strings are - (Check characters marked in bold)
+	GeeksforGeeks
+	GeeksforGeeks
+	GeeksforGeeks
+	GeeksforGeeks
+
+ * @author mbbansiw
+ *
+ */
 public class NumberOfTimesStringAsSubsequence
 {
 	public static void count(char[] s1, char[] s2)
