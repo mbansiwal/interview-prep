@@ -2,6 +2,12 @@ package arr;
 
 import java.util.Arrays;
 
+/**
+ * http://www.geeksforgeeks.org/reorder-a-array-according-to-given-indexes/
+ * 
+ * @author mbbansiw
+ *
+ */
 public class ReorderArrayByIndex {
 	static void reorder(int arr[], int index[]) 
     {
@@ -16,19 +22,6 @@ public class ReorderArrayByIndex {
 			}
 		}
     }
-	
-	static void reorder2(int arr[], int index[]) 
-    {
-		int n = index.length;
-		for (int i = 0; i < n; i++) {
-			arr[i] += arr[index[i]]*n;
-		}
-		
-		for (int i = 0; i < n; i++) {
-			arr[i] /= n;
-		}
-    }
-	
 	
 	public static void main(String[] args) {
 		int arr[] = new int[]{50, 40, 70, 60, 90}; 

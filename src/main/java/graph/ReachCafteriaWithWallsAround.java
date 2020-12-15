@@ -41,28 +41,29 @@ public class ReachCafteriaWithWallsAround {
 	int[][] directions = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
 	public static void main(String[] args) {
 		int[] noWalls = {0,0,0,0};
-		Cell[][] cells = {
-							{	new Cell(CellType.Cubical, noWalls), 
-								new Cell(CellType.Cubical, noWalls), 
-								new Cell(CellType.Cubical, noWalls), 
-								new Cell(CellType.Cubical, noWalls)
-							},
-							{	new Cell(CellType.Cafeteria, new int[] {0, 0, 1, 0}), 
-								new Cell(CellType.Cubical, new int[] {0, 0, 1, 0}), 
-								new Cell(CellType.Cubical, new int[] {0, 0, 1, 0}), 
-								new Cell(CellType.Cafeteria, noWalls)
-							},
-							{	new Cell(CellType.Cubical, new int[] {0, 0, 0, 0}), 
-								new Cell(CellType.Cubical, new int[] {0, 0, 0, 1}), 
-								new Cell(CellType.Cubical, new int[] {0, 0, 0, 1}), 
-								new Cell(CellType.Cubical, noWalls)
-							},
-							{	new Cell(CellType.Cubical, noWalls), 
-								new Cell(CellType.Cubical, noWalls), 
-								new Cell(CellType.Cubical, noWalls), 
-								new Cell(CellType.Cubical, noWalls)
-							}
-						  };
+		Cell[][] cells = 
+		{
+			{	new Cell(CellType.Cubical, noWalls), 
+				new Cell(CellType.Cubical, noWalls), 
+				new Cell(CellType.Cubical, noWalls), 
+				new Cell(CellType.Cubical, noWalls)
+			},
+			{	new Cell(CellType.Cafeteria, new int[] {0, 0, 1, 0}), 
+				new Cell(CellType.Cubical, new int[] {0, 0, 1, 0}), 
+				new Cell(CellType.Cubical, new int[] {0, 0, 1, 0}), 
+				new Cell(CellType.Cafeteria, noWalls)
+			},
+			{	new Cell(CellType.Cubical, new int[] {0, 0, 0, 0}), 
+				new Cell(CellType.Cubical, new int[] {0, 0, 0, 1}), 
+				new Cell(CellType.Cubical, new int[] {0, 0, 0, 1}), 
+				new Cell(CellType.Cubical, noWalls)
+			},
+			{	new Cell(CellType.Cubical, noWalls), 
+				new Cell(CellType.Cubical, noWalls), 
+				new Cell(CellType.Cubical, noWalls), 
+				new Cell(CellType.Cubical, noWalls)
+			}
+		};
 		
 		int[] source = {2, 1};
 		System.out.println(new ReachCafteriaWithWallsAround().findMinimumDistance(cells, source));

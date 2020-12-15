@@ -120,6 +120,8 @@ public class BinaryTreePrintEdges
 	     
 	     tree.printEdges(tree.root);
 	     System.out.println();
+	     tree.printBoundaries(tree.root);
+	     System.out.println();
 	     tree.root = new Node(1);
 	     tree.root.right = new Node(2);
 	     tree.root.right.right = new Node(3);

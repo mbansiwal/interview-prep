@@ -6,11 +6,10 @@ import java.util.List;
 
 public class SumOf3
 {
-	public static List<List<Integer>> threeSum(int[] nums)
+	public static List<List<Integer>> threeSum(int[] nums, int sum )
 	{
 		List<List<Integer>> subsets = new ArrayList<>();
 		Arrays.sort(nums);
-		int sum = 0;
 		for (int i = 0; i < nums.length - 2; i++)
 		{
 			int left = i + 1;
@@ -46,6 +45,6 @@ public class SumOf3
 		{
 				-2, 0, 1, 1, 2
 		};
-		System.out.println(threeSum(nums));
+		System.out.println(threeSum(nums, 0));
 	}
 }

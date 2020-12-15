@@ -112,6 +112,10 @@ class Vertex<T> {
         return id;
     }
     
+    public int getIdAsInt(){
+        return (int)id;
+    }
+    
     public void setData(T data){
         this.data = data;
     }

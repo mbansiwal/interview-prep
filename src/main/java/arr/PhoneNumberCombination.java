@@ -31,8 +31,7 @@ public class PhoneNumberCombination
 			return;
 		}
 
-		String currentDigit = digits.substring(0, 1);
-		String currentLetters = phone.get(currentDigit.charAt(0));
+		String currentLetters = phone.get(digits.charAt(0));
 		for (int i = 0; i < currentLetters.length(); i++)
 		{
 			backTrack(digits.substring(1), combinations + currentLetters.charAt(i));
@@ -50,6 +49,6 @@ public class PhoneNumberCombination
 
 	public static void main(String[] args)
 	{
-		System.out.println(new PhoneNumberCombination().letterCombinations("234"));
+		System.out.println(new PhoneNumberCombination().letterCombinations("23"));
 	}
 }

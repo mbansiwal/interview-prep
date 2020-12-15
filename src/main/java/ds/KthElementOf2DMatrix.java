@@ -1,5 +1,7 @@
 package ds;
 
+import java.util.PriorityQueue;
+
 class MatrixHeapNode
 {
 	int row;
@@ -70,6 +72,42 @@ class MatrixHeap
 	}
 }
 
+class RowColumPair
+{
+	int row;
+	int column;
+
+	public RowColumPair(int row, int column)
+	{
+		this.row = row;
+		this.column = column;
+	}
+
+
+public int kthSmallest(int[][] matrix, int k) {
+    final int rows = matrix.length;
+	final int columns = matrix[0].length;
+	if ((rows * columns) < k)
+	{
+		return -1;
+	}
+
+	PriorityQueue<RowColumPair> queue = new PriorityQueue<>(k, (o1, o2) -> matrix[o1.row][o1.column] - matrix[o2.row][o2.column]);
+	for (int j = 0; j < columns; j++)
+	{
+		queue.add(new RowColumPair(0, j));
+	}
+
+	
+	RowColumPair rowColumPair = null;
+	for (int i = 0; i < k; i++)
+	{
+		rowColumPair = queue.poll();
+		queue.add(new RowColumPair(rowColumPair.row + 1, rowColumPair.column));
+	}
+	return matrix[rowColumPair.row][rowColumPair.column];
+}
+}
 
 public class KthElementOf2DMatrix 
 {

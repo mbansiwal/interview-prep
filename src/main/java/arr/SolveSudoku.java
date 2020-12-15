@@ -1,5 +1,17 @@
 package arr;
 
+/**
+ * https://www.geeksforgeeks.org/sudoku-backtracking-7/
+ * 
+ * Time complexity: O(9^(n*n)). 
+For every unassigned index, there are 9 possible options so the time complexity is O(9^(n*n)). The time complexity remains the same but there will be some early pruning so the time taken will be much less than the naive algorithm but the upper bound time complexity remains the same.
+Space Complexity: O(n*n). 
+To store the output array a matrix is needed.
+
+
+ * @author mbbansiw
+ *
+ */
 public class SolveSudoku
 {
 	public boolean solveSudoku(char[][] board)
@@ -52,20 +64,6 @@ public class SolveSudoku
 			{
 				return false;
 			}
-		}
-		return true;
-	}
-
-	private boolean isValid2(char[][] board, int row, int col, char c)
-	{
-		for (int i = 0; i < 9; i++)
-		{
-			if (board[i][col] == c)
-				return false; // check row
-			if (board[row][i] == c)
-				return false; // check column
-			if (board[3 * (row / 3) + i / 3][3 * (col / 3) + i % 3] == c)
-				return false; // check 3*3 block
 		}
 		return true;
 	}

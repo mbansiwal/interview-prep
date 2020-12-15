@@ -36,6 +36,8 @@ public class SlidingWindowMaximum
 
 	public static void main(String[] args)
 	{
+		int[] arr1 = {1,3,-1,-3,5,3,6,7};
+		printMax(arr1, arr1.length, 3);
 		int arr[] =
 		{
 				12, 1, 78, 90, 57, 89, 56

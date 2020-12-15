@@ -37,7 +37,7 @@ public class SegmentIndexTree {
         return index - (index & (-index));
     }
 
-    private int getChildIndex(int index){
+    private int getChildIndex(int index){ 
         return index + (index&(-index));
     }
 

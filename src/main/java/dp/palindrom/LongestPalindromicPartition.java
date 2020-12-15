@@ -1,7 +1,5 @@
 package dp.palindrom;
 
-import java.util.Arrays;
-
 public class LongestPalindromicPartition
 {
 

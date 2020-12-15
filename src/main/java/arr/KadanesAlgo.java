@@ -58,5 +58,11 @@ public class KadanesAlgo
 				1, 12, -5, -6, 50, 3
 		};
 		System.out.println(algo.findMax(arr3));
+		
+		int arr4[] =
+		{
+				1, -1, 1
+		};
+		System.out.println(algo.findMax(arr4));
 	}
 }

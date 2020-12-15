@@ -25,5 +25,37 @@ public class ShortestPalindrome {
 	
 	public static void main(String[] args) {
 		System.out.println(shortestPalindrome("aacecaaa"));
+		System.out.println(shortestPalindrome2("abcd"));
+	}
+	
+	static String shortestPalindrome2(String s)
+	{
+		String reverse = new StringBuilder(s).reverse().toString();
+		String fullStr = new StringBuilder(s).append("#").append(reverse).toString();
+		int lpsLength = findLps(fullStr);
+		return reverse.substring(0, s.length() - lpsLength) + s;
+	}
+	
+	private static int findLps(String str) {
+		int n = str.length();
+		char[] pattern = str.toCharArray();
+		int[] table = new int [n];
+		int i = 1;
+		int j = 0;
+		while(i < n) {
+			if(pattern[i] == pattern[j]) {
+				j++;
+				table[i] = j;
+				i++;
+			} else {
+				if(j > 0) {
+					j = table[j-1];
+				}else {
+					table[i] = 0;
+					i++;
+				}
+			}
+		}
+		return table[n-1];
 	}
 }

@@ -1,4 +1,4 @@
-package ds;
+package dp.matrix;
 
 import java.util.Arrays;
 

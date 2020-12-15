@@ -24,5 +24,6 @@ public class RearrangeGivenArrayPlace {
 		rearrange(arr);
 		
 		System.out.println(Arrays.toString(arr));
+		//[1, 0, 3, 2]
 	}
 }

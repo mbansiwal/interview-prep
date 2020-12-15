@@ -15,14 +15,14 @@ Initial position is cell (0, 0) and initial direction is right.
 Following are rules for movements across cells.
 
 If face is Right, then we can move to below cells
-
 Move one step ahead, i.e., cell (i, j+1) and direction remains right.
 Move one step down and face left, i.e., cell (i+1, j) and direction becomes left.
-If face is Left, then we can move to below cells
 
+If face is Left, then we can move to below cells
 Move one step ahead, i.e., cell (i, j-1) and direction remains left.
 Move one step down and face right, i.e., cell (i+1, j) and direction becomes right.
-Final position can be anywhere and final direction can also be anything. The target is to collect maximum coins.
+Final position can be anywhere and final direction can also be anything. 
+The target is to collect maximum coins.
 
 http://www.geeksforgeeks.org/collect-maximum-coins-before-hitting-a-dead-end/
  * @author mbansiwal

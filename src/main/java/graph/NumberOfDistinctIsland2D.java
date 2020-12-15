@@ -36,10 +36,12 @@ public class NumberOfDistinctIsland2D {
 
     public static void main(String args[]) {
         NumberOfDistinctIsland2D nd = new NumberOfDistinctIsland2D();
-        int[][] grid = { { 1, 1, 0, 1, 1 },
-                { 1, 0, 0, 0, 0 },
-                { 0, 0, 0, 0, 1 },
-                { 1, 1, 0, 1, 1 } };
+        int[][] grid = { 
+			        		{ 1, 1, 0, 1, 1 },
+			                { 1, 0, 0, 0, 0 },
+			                { 0, 0, 0, 0, 1 },
+			                { 1, 1, 0, 1, 1 } 
+                	   };
 
         System.out.println("Number of distinct islands is " + nd.countDistinctIslands(grid));
 
