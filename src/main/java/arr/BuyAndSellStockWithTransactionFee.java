@@ -5,8 +5,8 @@ public class BuyAndSellStockWithTransactionFee {
 		int cash = 0;
 		int hold = -prices[0];
 		for (int i = 1; i < prices.length; i++) {
-			cash = Math.max(cash, cash + hold -fee);
-			hold = Math.max(hold, cash - prices[i]);
+			cash = Math.max(cash, hold +  prices[i] - fee);
+            hold = Math.max(hold, cash - prices[i]);
 		}
 		return cash;
 	}
