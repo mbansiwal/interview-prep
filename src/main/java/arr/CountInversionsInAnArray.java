@@ -11,7 +11,7 @@ public class CountInversionsInAnArray {
 
         int[] smaller = new int[n];
         int[] greater = new int[n];
-
+        
         int[] tree = new int[n+1];
         for (int i=n-1; i>=0; --i){
             smaller[i] += getSum(tree, arr[i] - 1);
@@ -97,5 +97,11 @@ public class CountInversionsInAnArray {
         int arr2[] = new int[] { 1, 20, 6, 4, 5 };
         System.out.println(new CountInversionsInAnArray().countInversions(arr2));
         System.out.println(new CountInversionsInAnArray().findInversions(arr2));
+        
+        int arr3[] = {2, 4, 1, 3, 5};
+        
+        System.out.println(new CountInversionsInAnArray().countInversions(arr3));
+        System.out.println(new CountInversionsInAnArray().findInversions(arr3));
+        
     }
 }
