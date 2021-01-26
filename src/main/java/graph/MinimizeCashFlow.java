@@ -1,5 +1,8 @@
 package graph;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * http://www.geeksforgeeks.org/minimize-cash-flow-among-given-set-friends-
  * borrowed-money/
@@ -90,6 +93,9 @@ public class MinimizeCashFlow
                 {0, 0, 0}
 		};
 		new MinimizeCashFlow().minimizeCashFlow(graph);
+		
+		int[][] transactions= {{0,1,10}, {2,0,5}};
+		new MinimizeCashFlow().minimizeCashFlow(transactions);
 	}
 
 	public void minimizeCashFlow(int[][] graph){
