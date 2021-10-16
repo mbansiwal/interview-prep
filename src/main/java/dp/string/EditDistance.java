@@ -15,7 +15,7 @@ public class EditDistance {
 		
 		int[][] table = new int[n1+1][n2+1];
 		for (int i = 0; i < n1; i++)
-		{
+		{ 
 			table[i][0] = i;
 		}
 		for (int j = 0; j < n2; j++)

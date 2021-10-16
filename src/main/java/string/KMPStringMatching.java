@@ -45,12 +45,8 @@ public class KMPStringMatching
 		int textIndex = 0;
 		int patternIndex = 0;
 		boolean matchFound = false;
-		int iterations = 0;
 		while(textIndex < size)
 		{
-			iterations++;
-			System.out.println(text[textIndex]+","+pattern[patternIndex]+"; "+textIndex+":"+patternIndex);
-			
 			if(text[textIndex] == pattern[patternIndex])
 			{
 				textIndex++;
@@ -74,7 +70,6 @@ public class KMPStringMatching
 			}
 		}
 		System.out.println(matchFound);
-		System.out.println(iterations);
 	}
 	
 	public static void main(String[] args) 

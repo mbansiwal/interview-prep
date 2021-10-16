@@ -5,8 +5,6 @@ public class ReverseNodesInKGroup
 	public ListNode reverseKGroup(ListNode head, int k)
 	{
 		ListNode current = head;
-		ListNode previous = null;
-		ListNode next = null;
 		int count = 0;
 		while (current != null && count < k)
 		{
@@ -19,21 +17,22 @@ public class ReverseNodesInKGroup
 		}
 		current = head;
 		count = 0;
+		ListNode reverse = null;
 		while (current != null && count < k)
 		{
-			next = current.next;
-			current.next = previous;
-			previous = current;
+			ListNode next = current.next;
+			current.next = reverse;
+			reverse = current;
 			current = next;
 			++count;
 		}
 
-		if (next != null)
+		if (current != null)
 		{
-			head.next = reverseKGroup(next, k);
+			head.next = reverseKGroup(current, k);
 		}
 
-		return previous;
+		return reverse;
 	}
 
 	public ListNode reverseAList(ListNode head)

@@ -72,4 +72,9 @@ public class LongestContinuousSubarrayWithAbsoluteDiff {
         }
         return res;
     }
+	
+	public static void main(String[] args) {
+		int[] arr = {8,2,4,7};
+		System.out.println(new LongestContinuousSubarrayWithAbsoluteDiff().longestSubarray(arr, 4));
+	}
 }

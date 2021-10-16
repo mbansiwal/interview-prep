@@ -59,15 +59,15 @@ public class ReorderLinkedList
 
 	private ListNode reverse(ListNode node)
 	{
-		ListNode newHead = null;
+		ListNode reverse = null;
 		while (node != null)
 		{
 			ListNode next = node.next;
-			node.next = newHead;
-			newHead = node;
+			node.next = reverse;
+			reverse = node;
 			node = next;
 		}
-		return newHead;
+		return reverse;
 	}
 
 	public static void main(String[] args)

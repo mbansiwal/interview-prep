@@ -47,7 +47,6 @@ public class FindFirstAndLastPositionOfElementInSortedArray
 		while(low <= high) {
 			int mid = (low + high)/2;
 			
-			
 			if(nums[mid] < target) {
 				low = mid + 1;
 			} else {

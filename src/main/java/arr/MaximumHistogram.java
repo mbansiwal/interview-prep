@@ -15,6 +15,7 @@ public class MaximumHistogram {
                 int top = stack.pop();
                 if(stack.empty()){
                     area = i*heights[top];
+                    System.out.println("i=="+i+", top=="+top+", area=="+area+", heights[top]=="+heights[top]);
                 } else{
                     area = heights[top]*(i - 1 - stack.peek());
                 }
@@ -37,7 +38,7 @@ public class MaximumHistogram {
 	public static void main(String[] args) {
 		MaximumHistogram hist = new MaximumHistogram();
 		int height[] = { 2, 1, 5, 6, 2, 3 };
-//		System.out.println(hist.maxHistogram(height));
+		System.out.println(hist.maxHistogram(height));
 		
 		int height2[] = { 6, 2, 5, 4, 5, 1, 6 };
 		System.out.println(hist.maxHistogram(height2));

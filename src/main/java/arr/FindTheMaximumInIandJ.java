@@ -1,5 +1,7 @@
 package arr;
 
+import java.util.Iterator;
+
 /**
  * http://www.geeksforgeeks.org/given-an-array-arr-find-the-maximum-j-i-such-that-arrj-arri/
  * 
@@ -22,6 +24,34 @@ Examples :
  *
  */
 public class FindTheMaximumInIandJ {
+	int maxIndexDiff2(int arr[]) 
+    { 
+		int n = arr.length;
+		if(n == 0) {
+			return 0;
+		}
+		
+		int[] maxArr = new int[n];
+		maxArr[n-1] = arr[n-1];
+		for (int i = n-2; i >=0; i--) {
+			maxArr[i] = Math.max(maxArr[i+1], arr[i]);
+		}
+		
+		int maxDiff = Integer.MIN_VALUE;
+		int i = 0;
+		int j = 0;
+		while(i < n && j < n)
+		{
+			if(arr[i] <= maxArr[j]) {
+				maxDiff = Math.max(maxDiff, j-i);
+				j++;
+			} else {
+				i++;
+			}
+		}
+		
+		return maxDiff;
+    }
 	int maxIndexDiff(int arr[]) 
     { 
 		int n = arr.length;
@@ -59,5 +89,6 @@ public class FindTheMaximumInIandJ {
 	public static void main(String[] args) {
 		int arr[] = { 9, 2, 3, 4, 5, 6, 7, 8, 18, 0 };
 		System.out.println(new FindTheMaximumInIandJ().maxIndexDiff(arr));
+		System.out.println(new FindTheMaximumInIandJ().maxIndexDiff2(arr));
 	}
 }

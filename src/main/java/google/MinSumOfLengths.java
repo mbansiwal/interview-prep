@@ -57,7 +57,7 @@ public class MinSumOfLengths {
 			prefixSum += arr[i];
 			if (prefixSumIndexes.containsKey(prefixSum - target)) {
 				int index = prefixSumIndexes.get(prefixSum - target);
-				if (index >= 0) {
+				if (index >= 0) { 
 					// when there is another prefix ending at index that sum to target
 					res = Math.min(res, minArrayLen[index] + i - index);
 				}

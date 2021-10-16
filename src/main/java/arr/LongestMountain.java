@@ -17,9 +17,8 @@ public class LongestMountain {
                     while(end + 1 < n && arr[end] > arr[end+1]){
                         end++;
                     }
+                    ans = Math.max(ans, end - base + 1);
                 }
-
-                ans = Math.max(ans, end - base + 1);
             }
             base = Math.max(end, base+1);
         }

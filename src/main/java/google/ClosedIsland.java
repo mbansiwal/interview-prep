@@ -44,7 +44,9 @@ public class ClosedIsland {
         int numberOfIslands = 0;
         for(int i=0; i<arr.length; i++){
             for(int j =0; j<arr[0].length; j++){
-                if(arr[i][j] == 1)continue;
+                if(arr[i][j] == 1) {
+                	continue;
+                }
                 numberOfIslands += getIsland(i, j);
             }
         }
@@ -54,12 +56,16 @@ public class ClosedIsland {
     public int getIsland(int x, int y){
         if(x >= arr.length || x < 0) return 0;
         if(y >= arr[0].length || y < 0) return 0;
-        if(arr[x][y] == 1) return 1;
+        if(arr[x][y] == 1) {
+        	return 1;
+        }
         
         arr[x][y] = 1;
         
 		//to check if all surroundings are 1 and not overflowing
-        if(getIsland(x+1, y)+getIsland(x-1, y)+ getIsland(x, y+1)+ getIsland(x, y-1) == 4) return 1;
+        if(getIsland(x+1, y)+getIsland(x-1, y)+ getIsland(x, y+1)+ getIsland(x, y-1) == 4) {
+        	return 1;
+        }
         return 0;
     }
 }
