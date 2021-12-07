@@ -31,6 +31,23 @@ public class SubarraysWithKDistinct
 
 		return ans;
 	}
+	
+	public int subarraysWithKDistinct2(int[] arr, int k)
+	{
+		int sum = 0;
+		int left = 0;
+		Window window = new Window();
+		for (int i = 0; i < arr.length; i++) {
+			window.add(arr[i]);
+			while(window.different() > k) {
+				window.remove(arr[left++]);
+			}
+			if(window.different() == k) {
+				sum+=i-left;
+			}
+		}
+		return sum;
+	}
 
 	public static void main(String[] args)
 	{
@@ -38,27 +55,36 @@ public class SubarraysWithKDistinct
 		{
 				1, 2, 1, 2, 3
 		}, 2));
+		
+		System.out.println(new SubarraysWithKDistinct().subarraysWithKDistinct(new int[]
+				{
+						1, 2, 1, 2, 3
+				}, 2));
+				
+		System.out.println(new SubarraysWithKDistinct().subarraysWithKDistinct2(new int[]
+						{
+								1,2,1,3,4
+						}, 3));
+				
+		System.out.println(new SubarraysWithKDistinct().subarraysWithKDistinct2(new int[]
+				{
+						1,2,1,3,4
+				}, 3));
 	}
 }
 
 class Window
 {
 	Map<Integer, Integer> count;
-	int nonzero;
 
 	Window()
 	{
-		count = new HashMap();
-		nonzero = 0;
+		count = new HashMap<>();
 	}
 
 	void add(int x)
 	{
 		count.put(x, count.getOrDefault(x, 0) + 1);
-		if (count.get(x) == 1)
-		{
-			nonzero++;
-		}
 	}
 
 	void remove(int x)
@@ -66,12 +92,12 @@ class Window
 		count.put(x, count.get(x) - 1);
 		if (count.get(x) == 0)
 		{
-			nonzero--;
+			count.remove(x);
 		}
 	}
 
 	int different()
 	{
-		return nonzero;
+		return count.size();
 	}
 }

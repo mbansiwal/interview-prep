@@ -25,5 +25,9 @@ public class RearrangeArrayArrIj {
 		int arr[] = { 2, 0, 1, 4, 5, 3 };
 		rearrangeNaive(arr);
 		System.out.println("Modified array is :" + Arrays.toString(arr)); 
+		
+		int arr2[] = { 3, 2, 0, 1 };
+		rearrangeNaive(arr2);
+		System.out.println("Modified array is :" + Arrays.toString(arr2)); 
 	}
 }

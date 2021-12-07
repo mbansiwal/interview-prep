@@ -38,6 +38,36 @@ public class NthNodeFromList
 
 		return dummyNode.next;
 	}
+	
+	public ListNode removeNthFromEnd2(ListNode head, int n)
+	{
+		if (head == null)
+		{
+			return null;
+		}
+		ListNode dummyNode = new ListNode(0);
+		dummyNode.next = head;
+		ListNode forwardNode = head;
+		ListNode backwardNode = head;
+
+		for (int i = 0; i < n && forwardNode != null; i++)
+		{
+			forwardNode = forwardNode.next;
+		}
+
+		ListNode previous = null;
+		while (forwardNode != null)
+		{
+			forwardNode = forwardNode.next;
+			previous = backwardNode;
+			backwardNode = backwardNode.next;
+		}
+		
+		if(previous != null)
+		previous.next = backwardNode.next;
+
+		return dummyNode.next;
+	}
 
 	public static void main(String[] args)
 	{

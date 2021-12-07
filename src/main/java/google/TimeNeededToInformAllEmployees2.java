@@ -65,7 +65,7 @@ import java.util.List;
  * @author Administrator
  *
  */
-public class TimeNeededToInformAllEmployees {
+public class TimeNeededToInformAllEmployees2 {
 	class Employee {
 		List<Employee> children;
 		int informTime;
@@ -73,6 +73,14 @@ public class TimeNeededToInformAllEmployees {
 		public Employee(int informTime) {
 			this.informTime = informTime;
 			children = new ArrayList<>();
+		}
+		
+		public int getTime() {
+			int time = 0;
+			for (Employee employee : children) {
+				time = Math.max(time, employee.getTime());
+			}
+			return informTime + time;
 		}
 	}
 
@@ -84,27 +92,24 @@ public class TimeNeededToInformAllEmployees {
 		for (int i = 0; i < n; i++) {
 			employees[i] = new Employee(informTime[i]);
 		}
-
+		
+		Employee head = null;
 		for (int i = 0; i < n; i++) {
 			if (i != headID) {
 				employees[manager[i]].children.add(employees[i]);
+			} else {
+				head = employees[i];
 			}
 		}
 
-		dfs(employees[headID], 0);
 
-		return max;
+		return head.getTime();
 	}
 
-	public void dfs(Employee e, int time) {
-		if (e.informTime == 0)
-			return;
-
-		int currTime = time + e.informTime;
-		max = Math.max(max, currTime);
-
-		for (Employee c : e.children) {
-			dfs(c, currTime);
-		}
+	public static void main(String[] args) {
+		int n = 7, headID = 6;
+		int [] manager = {1,2,3,4,5,6,-1};
+		int[] informTime = {0,6,5,4,3,2,1};
+		System.out.println(new TimeNeededToInformAllEmployees2().numOfMinutes(n, headID, manager, informTime));
 	}
 }

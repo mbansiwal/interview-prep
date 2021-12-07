@@ -12,17 +12,17 @@ package dp.fibonaci;
  * size 1 x 3 horizontally on the floor of size 2 x 3.
  * 
  * Input : n = 4, m = 4 Output : 2 1st combination: All tiles are placed
- * horizontally 2nd combination: All tiles are placed vertically. Let “count(n)”
- * be the count of ways to place tiles on a “n x 4” grid, following two cases
+ * horizontally 2nd combination: All tiles are placed vertically. Let â€œcount(n)â€�
+ * be the count of ways to place tiles on a â€œn x 4â€� grid, following two cases
  * arise when we place the first tile.
  * 
  * Place the first tile horizontally : If we place first tile horizontally, the
- * problem reduces to “count(n-1)” 
+ * problem reduces to â€œcount(n-1)â€� 
  * 
  * 
  * Place the first tile vertically : If we place
  * first tile vertically, then we must place m-1 more tiles vertically. So the
- * problem reduces to “count(n-m)”
+ * problem reduces to â€œcount(n-m)â€�
  * 
  * @author mbansiwal
  *
@@ -40,7 +40,7 @@ public class FloorTiles
 			{
 				counts[i] = counts[i - 1] + counts[i - m];
 			}
-			else if (i < m)
+			else if (i < m || i == 1)
 			{
 				counts[i] = 1;
 			}

@@ -1,7 +1,7 @@
 package tree;
 
 /**
- * https://leetcode.com/problems/maximum-binary-tree/submissions/
+ * https://leetcode.com/problems/maximum-binary-tree
  * 
  * Given an integer array with no duplicates. A maximum tree building on this array is defined as follow:
 

@@ -16,7 +16,7 @@ public class BinaryTreeMaximumPathSum {
     Node root;
     
     public int maxPathSum(Node root) {
-		 maxPathSumUtil(root);
+		maxPathSumUtil(root);
 //		maxSumPath(root);
        return max;
     }

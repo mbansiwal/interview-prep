@@ -89,7 +89,6 @@ public class TextJustification {
 		int spacesNeeded = j - i - 1;
 		int spaces = diff / spacesNeeded;
 		int extraSpaces = diff % spacesNeeded;
-		int rightSpace = diff - (j - i - 1);
 		StringBuilder sb = new StringBuilder(words[i]);
 		for (int k = i + 1; k < j; ++k) {
 			int spacesToApply = spaces + (extraSpaces-- > 0 ? 1 : 0);
@@ -97,5 +96,11 @@ public class TextJustification {
 		}
 
 		return sb.toString();
+	}
+	
+	public static void main(String[] args) {
+		String[] words = {"This", "is", "an", "example", "of", "text", "justification."};
+		int maxWidth = 16;
+		System.out.println(new TextJustification().fullJustify(words, maxWidth));
 	}
 }

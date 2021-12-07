@@ -52,10 +52,10 @@ public class PaintHouse {
 				
 				if(currentMin > costs[i][j]) {
 					currentSecond = currentMin;
-					currentMin = costs[j][j];
+					currentMin = costs[i][j];
 					currentIndex = j;
 				} else if(currentSecond > costs[i][j] ) {
-					currentSecond = costs[j][j];
+					currentSecond = costs[i][j];
 				}
 				
 			}

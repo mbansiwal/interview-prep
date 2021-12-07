@@ -1,5 +1,10 @@
 package dp.palindrom;
 
+/**
+ * 
+ * @author Administrator
+ *
+ */
 public class LongestPalindromicPartition
 {
 
@@ -95,6 +100,9 @@ public class LongestPalindromicPartition
 		System.out.println(findIntersection("geeksforgeeks".toCharArray()));
 		System.out.println(findIntersection(str.toCharArray()));
 		System.out.println(findIntersection("cabababcbc".toCharArray()));
+		System.out.println(findIntersection("cdaac".toCharArray()));
+		System.out.println(findIntersection("tcymekt".toCharArray()));
+		
 
 	}
 }

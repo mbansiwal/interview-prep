@@ -37,50 +37,43 @@ class MultiChar {
 }
 
 public class ReorganizeStrings {
-	public String reorganizeString(String str) {
-		Map<Character, MultiChar> frequency = new HashMap<>();
-		for (int i = 0; i < str.length(); i++) {
-			if(!frequency.containsKey(str.charAt(i))) {
-				frequency.put(str.charAt(i), new MultiChar(str.charAt(i), 0));
-			}
-			frequency.get(str.charAt(i)).count++;
-		}
-		
-		PriorityQueue<MultiChar> queue = new PriorityQueue<>((o1, o2)-> {
-			if(o1.letter == o2.letter) {
-				return o1.letter - o2.letter;
-			}else {
-				return o2.count - o1.count;
-			}
-		});
-		
-		int limit = (str.length() + 1)/2;
-		for (MultiChar multiChar : frequency.values()) {
-			if(multiChar.count > limit) {
-				return "";
-			}
-			queue.add(multiChar);
-		}
-		
-		StringBuilder sb = new StringBuilder();
-		while(queue.size() >=2) {
-            MultiChar ch1 = queue.poll();
-            MultiChar ch2 = queue.poll();
-            ch1.count--;
-            ch2.count--;
-			sb.append(ch1.letter);
-			sb.append(ch2.letter);
-            if(ch1.count > 0){
-                queue.add(ch1);
+	public String reorganizeString(String s) {
+        Map<Character, Integer> countMap = new HashMap<>();
+        for(int i=0; i < s.length(); ++i){
+            countMap.put(s.charAt(i), countMap.getOrDefault(s.charAt(i), 0)+1);
+        }
+        
+        PriorityQueue<MultiChar> queue = new PriorityQueue<>((c1, c2) -> c2.count - c1.count);
+        int limit = (s.length() + 1)/2;
+        for(Map.Entry<Character, Integer> c1: countMap.entrySet()){
+            if(c1.getValue() > limit){
+                return "";
             }
-            if(ch2.count > 0){
-                queue.add(ch2);
+            queue.add(new MultiChar(c1.getKey(), c1.getValue()));
+        }
+        
+        StringBuilder sb = new StringBuilder("");
+        while(queue.size() >= 2){
+        	MultiChar c1 = queue.poll();
+            MultiChar c2 = queue.poll();
+            c1.count--;
+            c2.count--;
+            sb.append(c1.letter);
+            sb.append(c2.letter);
+            if(c1.count > 0){
+                queue.add(c1);
             }
-		}
-		
-		if(!queue.isEmpty()) {
-			sb.append(queue.poll().letter);
-		}
-		return sb.toString();
+            if(c2.count > 0){
+                queue.add(c2);
+            }
+        }
+        if(!queue.isEmpty()){
+            sb.append(queue.poll().letter);
+        }
+        return sb.toString();
+	}
+	
+	public static void main(String[] args) {
+		System.out.println(new ReorganizeStrings().reorganizeString("abb"));
 	}
 }

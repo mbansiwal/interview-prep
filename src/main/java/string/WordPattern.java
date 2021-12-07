@@ -33,6 +33,24 @@ Output: false
  *
  */
 public class WordPattern {
+	public boolean wordPattern2(String pattern, String s) {
+		Map<String, Character> wordMap = new HashMap<>();
+		Map<Character, String> patternMap = new HashMap<>();
+		String[] words = s.split(" ");
+        if(pattern.length() != words.length){
+            return false;
+        }
+        for (int i = 0; i < words.length; i++) {
+			Character p = pattern.charAt(i);
+			if(!wordMap.containsKey(words[i]) && !patternMap.containsKey(p)) {
+				wordMap.put(words[i], p);
+				patternMap.put(p, words[i]);
+			} else if(wordMap.getOrDefault(words[i], '\0') != p || !patternMap.getOrDefault(p, "").equals(words[i])) {
+					return false;
+			}
+		}
+        return true;
+	}
 	public boolean wordPattern(String pattern, String s) {
         Map<Character, String> charMap = new HashMap<>();
         Map<String, Character> wordMap = new HashMap<>();
@@ -64,5 +82,8 @@ public class WordPattern {
 		String pattern = "abba";
 		String words = "dog cat cat dog";
 		System.out.println(new WordPattern().wordPattern(pattern, words));
+//		System.out.println(new WordPattern().wordPattern2(pattern, words));
+		System.out.println(new WordPattern().wordPattern(pattern, "dog cat cat fish"));
+		System.out.println(new WordPattern().wordPattern2(pattern, "dog cat cat fish"));
 	}
 }

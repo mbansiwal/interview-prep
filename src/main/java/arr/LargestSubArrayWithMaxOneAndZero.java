@@ -9,13 +9,10 @@ import java.util.Map;
  * Largest subarray with equal number of 0s and 1s
 Difficulty Level : Hard
 Last Updated : 18 Jun, 2021
-Given an array containing only 0s and 1s, find the largest subarray which contains equal no of 0s and 1s. The expected time complexity is O(n). 
+Given an array containing only 0s and 1s, find the largest subarray which contains equal no of 0s and 1s. 
+The expected time complexity is O(n). 
 
 Examples: 
-
-Attention reader! Don’t stop learning now. Get hold of all the important DSA concepts with the DSA Self Paced Course at a student-friendly price and become industry ready.  To complete your preparation from learning a language to DS Algo and many more,  please refer Complete Interview Preparation Course.
-
-In case you wish to attend live classes with experts, please refer DSA Live Classes for Working Professionals and Competitive Programming Live for Students.
 
 Input: arr[] = {1, 0, 1, 1, 1, 0, 0}
 Output: 1 to 6 

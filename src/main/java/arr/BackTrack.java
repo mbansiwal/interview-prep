@@ -2,7 +2,10 @@ package arr;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 public class BackTrack
 {
@@ -111,6 +114,41 @@ public class BackTrack
 				backtrack(list, tempList, nums, used);
 				used[i] = false;
 				tempList.remove(tempList.size() - 1);
+			}
+		}
+	}
+	
+	public List<List<Integer>> permuteUnique2(int[] nums)
+	{
+		List<List<Integer>> list = new ArrayList<>();
+		Map<Integer, Integer> countMap = new HashMap<>();
+		for (int num : nums) {
+			countMap.put(num, countMap.getOrDefault(num, 0) + 1);
+		}
+		backtrack(list, new LinkedList<>(), countMap, nums.length);
+		return list;
+	}
+
+	private void backtrack(List<List<Integer>> list, LinkedList<Integer> tempList, Map<Integer, Integer> countMap, int n)
+	{
+		if (tempList.size() == n)
+		{
+			list.add(new ArrayList<>(tempList));
+		}
+		else
+		{
+			for (Map.Entry<Integer, Integer> entry: countMap.entrySet()) {
+				int num = entry.getKey();
+				int count = entry.getValue();
+				if(count == 0) {
+					continue;
+				}
+				tempList.add(num);
+				countMap.put(num, count-1);
+				backtrack(list, tempList, countMap, n);
+				countMap.put(num, count);
+				tempList.removeLast();
+				
 			}
 		}
 	}

@@ -16,7 +16,7 @@ public class SwapNodesInPairs
 			ListNode next = current.next;
 			current.next = previous;
 
-			if (next == null || next.next == null)
+			if (next == null || next.next == null) 
 			{
 				previous.next = next;
 				break;

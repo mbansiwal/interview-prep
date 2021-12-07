@@ -25,6 +25,36 @@ import java.util.List;
  *
  */
 public class MinimumWindowSubsequence {
+	public String minWindow2Pract(String str, String pattern) {
+		int k = pattern.length();
+		int j=0;
+		int min = Integer.MAX_VALUE;
+		String window = "";
+		for(int i=0; i < str.length(); ++i) {
+			if(str.charAt(i) == pattern.charAt(j)) {
+				j++;
+				if(j == k) {
+					int end = i + 1;
+					--j;
+					while(j >=0) {
+						if(pattern.charAt(j) == str.charAt(i)) {
+							--j;
+						}
+						--i;
+					}
+					++i;
+					++j;
+					
+					if(end - i < min) {
+						min = end - i;
+						window = str.substring(i, end);
+					}
+				}
+			}
+			
+		}
+		return window;
+	}
 	public String minWindow(String str, String pattern) {
 		int N = str.length();
 		int[] last = new int[26];
@@ -91,4 +121,10 @@ public class MinimumWindowSubsequence {
 	        }
 	        return window;
 	    }
+	 
+	 public static void main(String[] args) {
+		String S = "abcdebdde", T = "bde";
+		System.out.println(new MinimumWindowSubsequence().minWindow2(S, T));
+		System.out.println(new MinimumWindowSubsequence().minWindow2Pract(S, T));
+	}
 }

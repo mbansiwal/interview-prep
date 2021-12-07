@@ -32,10 +32,65 @@ public class PlusOne {
         return digits;
     }
     
+    public int[] plusOne2(int[] digits) {
+        int n = digits.length;
+        int[] result = new int[n+1];
+        int carry = 1;
+        for(int i=n-1; i >=0; --i){
+            int temp = digits[i]+carry;
+            if(temp == 10){
+                carry = 1;                             
+            } else{
+                carry = 0;
+                result[i+1] = temp;
+            }
+        }
+        if(carry != 0){
+            result[0] = carry;
+            digits = result;
+        } else{
+            for(int i=0; i < n; ++i){
+                digits[i] = result[i+1];
+            }
+        }
+        
+        
+        return digits;
+    }
+    
+    public int[] plusOne3(int[] digits) {
+        int n = digits.length;
+        int carry = 1;
+        for(int i=n-1; i >=0; --i){
+            int temp = digits[i]+carry;
+            if(temp == 10){
+                carry = 1;  
+                digits[i] = 0;
+            } else{
+                carry = 0;
+                digits[i] = temp;
+            }
+        }
+        if(carry != 0){
+        	int[] result = new int[n+1];
+        	for (int i = 1; i < result.length; i++) {
+				result[i] = digits[i-1];
+			}
+            result[0] = carry;
+            digits = result;
+        } 
+        return digits;
+    }
+    
     public static void main(String[] args) {
     	int[] digits = {9,9};
     	int[] output = new PlusOne().plusOne(digits);
     	
 		System.out.println(Arrays.toString(output));
+		
+		int[] digits2 = {9,9};
+		System.out.println(Arrays.toString(new PlusOne().plusOne2(digits2)));
+		int[] digits3 = {9,9};
+		System.out.println(Arrays.toString(new PlusOne().plusOne3(digits3)));
 	}
 }

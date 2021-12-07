@@ -66,6 +66,31 @@ public class MinJumpToReachEnd {
         return count + 1;
     }
     
+    /**
+     * https://leetcode.com/problems/jump-game-vii/
+     * @param s
+     * @param minJump
+     * @param maxJump
+     * @return
+     */
+    public boolean canReach(String s, int minJump, int maxJump) {
+        int maxReached = 0;
+        char[] input = s.toCharArray();
+        int n = input.length;
+        boolean[] canReach = new boolean[n];
+        canReach[0] = true;
+        for(int i=0; i < input.length; ++i){
+            if(input[i]  == '0' && canReach[i]){
+             for (int j = Math.max(maxReached, i + minJump); j <= i + maxJump && j < n; ++j) {
+                canReach[j] = input[j] == '0'; 
+                maxReached = j; 
+             }   
+            }
+            
+        }
+        return canReach[n-1];
+    }
+    
     public int minimumJumps(int[] arr) 
     {
 		if (arr.length == 0 || arr[0] == 0)

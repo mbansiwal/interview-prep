@@ -41,14 +41,14 @@ public class ReorderLinkedList
 			node2 = node2Next;
 		}
 
-		while (node1 != null)
+		if (node1 != null)
 		{
 			newHead.next = node1;
 			node1 = node1.next;
 			newHead = newHead.next;
 		}
 
-		while (node2 != null)
+		if (node2 != null)
 		{
 			newHead.next = node2;
 			node2 = node2.next;

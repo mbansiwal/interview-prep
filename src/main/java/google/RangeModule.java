@@ -8,10 +8,14 @@ import java.util.TreeSet;
 /**
  * https://leetcode.com/problems/range-module
  * 
-A Range Module is a module that tracks ranges of numbers. Your task is to design and implement the following interfaces in an efficient manner.
+A Range Module is a module that tracks ranges of numbers. 
+Your task is to design and implement the following interfaces in an efficient manner.
 
-addRange(int left, int right) Adds the half-open interval [left, right), tracking every real number in that interval. Adding an interval that partially overlaps with currently tracked numbers should add any numbers in the interval [left, right) that are not already tracked.
-queryRange(int left, int right) Returns true if and only if every real number in the interval [left, right) is currently being tracked.
+addRange(int left, int right) Adds the half-open interval [left, right), tracking every real number in that interval. 
+Adding an interval that partially overlaps with currently tracked numbers should add any numbers in the interval [left, right) 
+that are not already tracked.
+queryRange(int left, int right) Returns true if and only if every real number in the interval [left, right) 
+is currently being tracked.
 removeRange(int left, int right) Stops tracking every real number currently being tracked in the interval [left, right).
 Example 1:
 addRange(10, 20): null
@@ -49,7 +53,7 @@ public class RangeModule {
         
         while(itr.hasNext()) {
         	Interval current = itr.next();
-        	if(right < left) {
+        	if(right < current.left) {
         		break;
         	}
         	left = Math.min(left, current.left);
@@ -86,4 +90,10 @@ public class RangeModule {
 			treeSet.add(interval);
 		}
     }
+    
+    public static void main(String[] args) {
+    	RangeModule rangeModule = new RangeModule();
+    	rangeModule.addRange(10, 20);
+    	rangeModule.addRange(18, 21);
+	}
 }

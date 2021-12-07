@@ -12,10 +12,12 @@ import java.util.*;
  * (not rotated or reflected).
  *
  * Input: grid[][] =
- * {{1, 1, 0, 0, 0},
- * 1, 1, 0, 0, 0},
- * 0, 0, 0, 1, 1},
- * 0, 0, 0, 1, 1}}
+ * {
+	 {1, 1, 0, 0, 0},
+	 {1, 1, 0, 0, 0},
+	 {0, 0, 0, 1, 1},
+	 {0, 0, 0, 1, 1}
+   }
  *
  * Output: 1
  * Island 1, 1 at the top left corner is same as island 1, 1 at the bottom right corner

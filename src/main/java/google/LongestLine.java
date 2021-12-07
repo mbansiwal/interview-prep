@@ -3,7 +3,8 @@ package google;
 /**
  * https://leetcode.com/problems/longest-line-of-consecutive-one-in-matrix/
  * 
- * Given a 01 matrix M, find the longest line of consecutive one in the matrix. The line could be horizontal, vertical, diagonal or anti-diagonal.
+ * Given a 01 matrix M, find the longest line of consecutive one in the matrix.
+ *  The line could be horizontal, vertical, diagonal or anti-diagonal.
 Example:
 Input:
 [[0,1,1,0],

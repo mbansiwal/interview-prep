@@ -9,7 +9,8 @@ import java.util.Map;
  * 
  * Given an array of integers arr and an integer target.
 
-You have to find two non-overlapping sub-arrays of arr each with sum equal target. There can be multiple answers so you have to find an answer where the sum of the lengths of the two sub-arrays is minimum.
+You have to find two non-overlapping sub-arrays of arr each with sum equal target.
+ There can be multiple answers so you have to find an answer where the sum of the lengths of the two sub-arrays is minimum.
 
 Return the minimum sum of the lengths of the two required sub-arrays, or return -1 if you cannot find such two sub-arrays.
 
@@ -24,7 +25,8 @@ Example 2:
 
 Input: arr = [7,3,4,7], target = 7
 Output: 2
-Explanation: Although we have three non-overlapping sub-arrays of sum = 7 ([7], [3,4] and [7]), but we will choose the first and third sub-arrays as the sum of their lengths is 2.
+Explanation: Although we have three non-overlapping sub-arrays of sum = 7 ([7], [3,4] and [7]), 
+but we will choose the first and third sub-arrays as the sum of their lengths is 2.
 Example 3:
 
 Input: arr = [4,3,2,6,2,3,4], target = 6
@@ -72,5 +74,16 @@ public class MinSumOfLengths {
 			return -1;
 		}
 		return res;
+	}
+	
+	public static void main(String[] args) {
+		int[] arr = {3,1,1,1,5,1,2,1};
+	//	System.out.println(new MinSumOfLengths().minSumOfLengths(arr, 3));
+		
+		int[] arr2 = {3,2,2,4,3};
+		System.out.println(new MinSumOfLengths().minSumOfLengths(arr2, 3));
+		
+		int[] arr3 = {7,3,4,7,7};
+		System.out.println(new MinSumOfLengths().minSumOfLengths(arr3, 7));
 	}
 }

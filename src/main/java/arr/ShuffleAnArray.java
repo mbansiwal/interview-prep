@@ -9,16 +9,15 @@ public class ShuffleAnArray
 
 	public ShuffleAnArray(int[] nums)
 	{
-		this.nums = nums;
+		this.nums = nums.clone();
 		this.original = nums.clone();
 	}
 
 	/** Resets the array to its original configuration and return it. */
 	public int[] reset()
 	{
-		nums = original;
-		original = original.clone();
-		return original;
+		nums = original.clone();
+		return nums;
 	}
 
 	/** Returns a random shuffling of the array. */

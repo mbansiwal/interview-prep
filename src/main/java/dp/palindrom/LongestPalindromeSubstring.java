@@ -79,6 +79,9 @@ public class LongestPalindromeSubstring {
 	// Driver program to test above functions
 	public static void main(String[] args) 
 	{
+		char str1[] = "ccbc".toCharArray();
+	    System.out.println("\nLength is: \n"+ longestPalSubstr( str1 ) );
+	    
 	    char str[] = "forgeeksskeegfor".toCharArray();
 	    System.out.println("\nLength is: \n"+ longestPalSubstr( str ) );
 	}

@@ -3,7 +3,8 @@ package google;
 /**
  * https://leetcode.com/problems/path-with-maximum-gold/
  * 
- * In a gold mine grid of size m * n, each cell in this mine has an integer representing the amount of gold in that cell, 0 if it is empty.
+ * In a gold mine grid of size m * n, each cell in this mine has an integer representing the amount of gold in that cell, 
+ * 0 if it is empty.
 
 Return the maximum amount of gold you can collect under the conditions:
 

@@ -8,7 +8,7 @@ public class LargestBSTInBinaryTree
 	{
 		boolean isBst;
 		int size;
-		int answer;
+		int largestTreeSize;
 		int minNode;
 		int maxNode;
 		
@@ -17,7 +17,7 @@ public class LargestBSTInBinaryTree
 			super();
 			this.isBst = isBst;
 			this.size = size;
-			this.answer = answer;
+			this.largestTreeSize = answer;
 			this.maxNode = maxNode;
 			this.minNode = minNode;
 		}
@@ -27,7 +27,7 @@ public class LargestBSTInBinaryTree
 			super();
 			this.isBst = false;
 			this.size = 0;
-			this.answer = 0;
+			this.largestTreeSize = 0;
 			this.maxNode = Integer.MAX_VALUE;
 			this.minNode = Integer.MIN_VALUE;
 		}
@@ -46,7 +46,7 @@ public class LargestBSTInBinaryTree
 
 		@Override
 		public String toString() {
-			return isBst+","+size+","+answer+","+minNode+","+maxNode;
+			return isBst+","+size+","+largestTreeSize+","+minNode+","+maxNode;
 		}
 	}
 	
@@ -71,10 +71,10 @@ public class LargestBSTInBinaryTree
 			result.maxNode = rightResult.maxNode;
 			result.minNode = leftResult.minNode;
 			result.isBst = true;
-			result.answer = size;
+			result.largestTreeSize = size;
 		} else
 		{
-			result.answer = Math.max(leftResult.size, rightResult.size);
+			result.largestTreeSize = Math.max(leftResult.size, rightResult.size);
 		}
 
 		return result;
@@ -96,12 +96,12 @@ public class LargestBSTInBinaryTree
 		tree.root.right.right.left = new Node(65);
 		tree.root.right.right.right = new Node(80);
 		
-		System.out.println(tree.isBST(tree.root).answer);
+		System.out.println(tree.isBST(tree.root).largestTreeSize);
 		
 		tree.root = new Node(60);
 		tree.root.left = new Node(65);
 		tree.root.right = new Node(70);
 		tree.root.left.left = new Node(50);
-		System.out.println(tree.isBST(tree.root).answer);
+		System.out.println(tree.isBST(tree.root).largestTreeSize);
 	}
 }

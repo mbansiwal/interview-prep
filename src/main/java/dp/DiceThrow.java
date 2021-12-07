@@ -5,12 +5,7 @@ package dp;
  * to get sum X. X is the summation of values on each face when all the dice are
  * thrown.
  * 
- * Recommended: Please solve it on “PRACTICE ” first, before moving on to the
- * solution. The Naive approach is to find all the possible combinations of
- * values from n dice and keep on counting the results that sum to X.
- * 
- * This problem can be efficiently solved using Dynamic Programming (DP).
- * 
+
  * Let the function to find X from n dice is: Sum(m, n, X) The function can be
  * represented as: Sum(m, n, X) = Finding Sum (X - 1) from (n - 1) dice plus 1
  * from nth dice + Finding Sum (X - 2) from (n - 1) dice plus 2 from nth dice +

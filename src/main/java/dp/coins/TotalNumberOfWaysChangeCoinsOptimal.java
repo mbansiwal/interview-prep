@@ -71,14 +71,14 @@ public class TotalNumberOfWaysChangeCoinsOptimal {
 	{
 		int[] comb = new int[target + 1];
 		comb[0] = 1;
-		for (int i = 1; i <= target; i++)
+		for (int j = 1; j <= target; j++)
 		{
-			for (int j = 0; j < nums.length; j++)
+			for (int i = 0; i < nums.length; i++)
 			{
-				int coinValue = nums[j];
-				if (i - coinValue >= 0)
+				int coinValue = nums[i];
+				if (j - coinValue >= 0)
 				{
-					comb[i] += comb[i - coinValue];
+					comb[j] += comb[j - coinValue];
 				}
 			}
 		}

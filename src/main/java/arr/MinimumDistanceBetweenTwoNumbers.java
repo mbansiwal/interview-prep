@@ -20,6 +20,22 @@ public class MinimumDistanceBetweenTwoNumbers {
 		return result;
     }
 	
+	public int minDist2(int arr[], int n, int x, int y)  
+    {
+		int prevIndex = -1;
+		
+		int dist = Integer.MAX_VALUE;
+		for (int i = 0; i < arr.length; i++) {
+			if(arr[i] == x || arr[i] == y) {
+				if(prevIndex != -1 && arr[i]!= arr[prevIndex]) {
+					dist = Math.min(dist, i-prevIndex);
+				}
+				prevIndex = i;
+			}
+		}
+		return dist;
+    }
+	
 	public static void main(String[] args) {
 		MinimumDistanceBetweenTwoNumbers min = new MinimumDistanceBetweenTwoNumbers(); 
         int arr[] = {3, 5, 4, 2, 6, 3, 0, 0, 5, 4, 8, 3}; 
@@ -29,5 +45,7 @@ public class MinimumDistanceBetweenTwoNumbers {
   
         System.out.println("Minimum distance between " + x + " and " + y 
                 + " is " + min.minDist(arr, n, x, y)); 
+        System.out.println("Minimum distance between " + x + " and " + y 
+                + " is " + min.minDist2(arr, n, x, y));
 	}
 }

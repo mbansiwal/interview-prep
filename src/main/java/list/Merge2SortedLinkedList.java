@@ -41,17 +41,17 @@ public class Merge2SortedLinkedList
 			mList = mList.next;
 		}
 
-		while (list1 != null)
+		if (list1 != null)
 		{
 			mList.next = list1;
 			list1 = list1.next;
 			mList = mList.next;
 		}
 
-		while (list2 != null)
+		if (list2 != null)
 		{
-			mList.next = list1;
-			list1 = list1.next;
+			mList.next = list2;
+			list2 = list2.next;
 			mList = mList.next;
 		}
 		return head.next;

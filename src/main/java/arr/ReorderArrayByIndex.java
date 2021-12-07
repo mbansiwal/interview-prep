@@ -26,6 +26,7 @@ public class ReorderArrayByIndex {
 	public static void main(String[] args) {
 		int arr[] = new int[]{50, 40, 70, 60, 90}; 
 	    int index[] = new int[]{3,  0,  4,  1,  2};
+	    
 	    reorder(arr, index);
 	    System.out.println("Reordered array is: "); 
         System.out.println(Arrays.toString(arr)); 

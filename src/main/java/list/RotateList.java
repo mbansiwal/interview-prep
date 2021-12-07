@@ -95,7 +95,7 @@ public class RotateList
 		node1.next.next = new ListNode(2);
 
 		System.out.println();
-		head = new RotateList().rotateRightOptimum(node1, 6);
+		head = new RotateList().rotateRightOptimum(node1, 4);
 		while (head != null)
 		{
 			System.out.print(head.val + ",");
